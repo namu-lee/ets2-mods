@@ -7,7 +7,7 @@ ui::text_template : txt.dashboardgps.limit.renault.etech_t {
 
 ui::text_template : txt.dashboardgps.speed.renault.etech_t {
  name: "Dashboard GPS Speed and Limit - current speed (Renault E-Tech T)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=5.16 yscale=5.16>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.354 yscale=3.354>%0</font></align>"
 }
 
 ui::text_template : txt.dashboardgps.limit.renault.t_2024 {
@@ -17,7 +17,7 @@ ui::text_template : txt.dashboardgps.limit.renault.t_2024 {
 
 ui::text_template : txt.dashboardgps.speed.renault.t_2024 {
  name: "Dashboard GPS Speed and Limit - current speed (Renault T 2024)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=5.62 yscale=5.62>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.653 yscale=3.653>%0</font></align>"
 }
 
 ui::text_template : txt.dashboardgps.limit.man.lions_coach {
@@ -26,7 +26,7 @@ ui::text_template : txt.dashboardgps.limit.man.lions_coach {
 }
 ui::text_template : txt.dashboardgps.speed.man.lions_coach {
  name: "Dashboard GPS Speed and Limit - current speed (MAN Lion's Coach)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=5.09 yscale=5.09>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.3085 yscale=3.3085>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.scania.touring {
  name: "Dashboard GPS Speed and Limit - speed limit (Scania Touring)"
@@ -34,7 +34,7 @@ ui::text_template : txt.dashboardgps.limit.scania.touring {
 }
 ui::text_template : txt.dashboardgps.speed.scania.touring {
  name: "Dashboard GPS Speed and Limit - current speed (Scania Touring)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=4.97 yscale=4.97>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.2305 yscale=3.2305>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.volvo.coach_9700 {
  name: "Dashboard GPS Speed and Limit - speed limit (Volvo 9700)"
@@ -42,7 +42,7 @@ ui::text_template : txt.dashboardgps.limit.volvo.coach_9700 {
 }
 ui::text_template : txt.dashboardgps.speed.volvo.coach_9700 {
  name: "Dashboard GPS Speed and Limit - current speed (Volvo 9700)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=6.41 yscale=6.41>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=4.1665 yscale=4.1665>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.daf.xf_xg_xd {
  name: "Dashboard GPS Speed and Limit - speed limit (DAF XF/XG 2021, XD and XF Electric)"
@@ -50,7 +50,7 @@ ui::text_template : txt.dashboardgps.limit.daf.xf_xg_xd {
 }
 ui::text_template : txt.dashboardgps.speed.daf.xf_xg_xd {
  name: "Dashboard GPS Speed and Limit - current speed (DAF XF/XG 2021, XD and XF Electric)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=4.69 yscale=4.69>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.0485 yscale=3.0485>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.daf.xf_105 {
  name: "Dashboard GPS Speed and Limit - speed limit (DAF XF 105)"
@@ -58,7 +58,7 @@ ui::text_template : txt.dashboardgps.limit.daf.xf_105 {
 }
 ui::text_template : txt.dashboardgps.speed.daf.xf_105 {
  name: "Dashboard GPS Speed and Limit - current speed (DAF XF 105)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.71 yscale=1.71>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.1115 yscale=1.1115>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.daf.xf_euro6 {
  name: "Dashboard GPS Speed and Limit - speed limit (DAF XF Euro 6)"
@@ -66,7 +66,7 @@ ui::text_template : txt.dashboardgps.limit.daf.xf_euro6 {
 }
 ui::text_template : txt.dashboardgps.speed.daf.xf_euro6 {
  name: "Dashboard GPS Speed and Limit - current speed (DAF XF Euro 6)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.79 yscale=1.79>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.1635 yscale=1.1635>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.iveco.hiway {
  name: "Dashboard GPS Speed and Limit - speed limit (Iveco Stralis Hi-Way)"
@@ -74,7 +74,7 @@ ui::text_template : txt.dashboardgps.limit.iveco.hiway {
 }
 ui::text_template : txt.dashboardgps.speed.iveco.hiway {
  name: "Dashboard GPS Speed and Limit - current speed (Iveco Stralis Hi-Way)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.88 yscale=1.88>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.222 yscale=1.222>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.iveco.stralis {
  name: "Dashboard GPS Speed and Limit - speed limit (Iveco Stralis)"
@@ -82,7 +82,7 @@ ui::text_template : txt.dashboardgps.limit.iveco.stralis {
 }
 ui::text_template : txt.dashboardgps.speed.iveco.stralis {
  name: "Dashboard GPS Speed and Limit - current speed (Iveco Stralis)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=2.02 yscale=2.02>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.313 yscale=1.313>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.iveco.sway {
  name: "Dashboard GPS Speed and Limit - speed limit (Iveco S-Way)"
@@ -90,7 +90,7 @@ ui::text_template : txt.dashboardgps.limit.iveco.sway {
 }
 ui::text_template : txt.dashboardgps.speed.iveco.sway {
  name: "Dashboard GPS Speed and Limit - current speed (Iveco S-Way)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=4.14 yscale=4.14>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=2.691 yscale=2.691>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.man.tgx {
  name: "Dashboard GPS Speed and Limit - speed limit (MAN TGX)"
@@ -98,7 +98,7 @@ ui::text_template : txt.dashboardgps.limit.man.tgx {
 }
 ui::text_template : txt.dashboardgps.speed.man.tgx {
  name: "Dashboard GPS Speed and Limit - current speed (MAN TGX)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.75 yscale=1.75>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.1375 yscale=1.1375>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.man.tgx_2020 {
  name: "Dashboard GPS Speed and Limit - speed limit (MAN TGX 2020)"
@@ -106,7 +106,7 @@ ui::text_template : txt.dashboardgps.limit.man.tgx_2020 {
 }
 ui::text_template : txt.dashboardgps.speed.man.tgx_2020 {
  name: "Dashboard GPS Speed and Limit - current speed (MAN TGX 2020)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=4.90 yscale=4.90>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.185 yscale=3.185>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.man_volvo {
  name: "Dashboard GPS Speed and Limit - speed limit (MAN TGX Euro 6 (2019) and Volvo FH 2009)"
@@ -114,7 +114,7 @@ ui::text_template : txt.dashboardgps.limit.man_volvo {
 }
 ui::text_template : txt.dashboardgps.speed.man_volvo {
  name: "Dashboard GPS Speed and Limit - current speed (MAN TGX Euro 6 (2019) and Volvo FH 2009)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.91 yscale=1.91>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.2415 yscale=1.2415>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.man.tgx_euro6.early {
  name: "Dashboard GPS Speed and Limit - speed limit (MAN TGX Euro 6 (early))"
@@ -122,7 +122,7 @@ ui::text_template : txt.dashboardgps.limit.man.tgx_euro6.early {
 }
 ui::text_template : txt.dashboardgps.speed.man.tgx_euro6.early {
  name: "Dashboard GPS Speed and Limit - current speed (MAN TGX Euro 6 (early))"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=2.64 yscale=2.64>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.716 yscale=1.716>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.mercedes.actros_2014 {
  name: "Dashboard GPS Speed and Limit - speed limit (Mercedes-Benz Actros 2014)"
@@ -130,7 +130,7 @@ ui::text_template : txt.dashboardgps.limit.mercedes.actros_2014 {
 }
 ui::text_template : txt.dashboardgps.speed.mercedes.actros_2014 {
  name: "Dashboard GPS Speed and Limit - current speed (Mercedes-Benz Actros 2014)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.95 yscale=1.95>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.2675 yscale=1.2675>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.renault.t_legacy {
  name: "Dashboard GPS Speed and Limit - speed limit (Renault T (legacy GPS))"
@@ -138,7 +138,7 @@ ui::text_template : txt.dashboardgps.limit.renault.t_legacy {
 }
 ui::text_template : txt.dashboardgps.speed.renault.t_legacy {
  name: "Dashboard GPS Speed and Limit - current speed (Renault T (legacy GPS))"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.38 yscale=1.38>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=0.897 yscale=0.897>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.scania.r_streamline {
  name: "Dashboard GPS Speed and Limit - speed limit (Scania R 2009 and Streamline)"
@@ -146,7 +146,7 @@ ui::text_template : txt.dashboardgps.limit.scania.r_streamline {
 }
 ui::text_template : txt.dashboardgps.speed.scania.r_streamline {
  name: "Dashboard GPS Speed and Limit - current speed (Scania R 2009 and Streamline)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.60 yscale=1.60>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.04 yscale=1.04>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.scania.rs_2016.legacy {
  name: "Dashboard GPS Speed and Limit - speed limit (Scania R/S 2016 (legacy GPS))"
@@ -154,7 +154,7 @@ ui::text_template : txt.dashboardgps.limit.scania.rs_2016.legacy {
 }
 ui::text_template : txt.dashboardgps.speed.scania.rs_2016.legacy {
  name: "Dashboard GPS Speed and Limit - current speed (Scania R/S 2016 (legacy GPS))"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.52 yscale=1.52>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=0.988 yscale=0.988>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.scania.smartdash {
  name: "Dashboard GPS Speed and Limit - speed limit (Scania Smart Dash)"
@@ -162,7 +162,7 @@ ui::text_template : txt.dashboardgps.limit.scania.smartdash {
 }
 ui::text_template : txt.dashboardgps.speed.scania.smartdash {
  name: "Dashboard GPS Speed and Limit - current speed (Scania Smart Dash)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=4.5 yscale=4.5>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=2.925 yscale=2.925>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.scania.s_electric {
  name: "Dashboard GPS Speed and Limit - speed limit (Scania S Electric)"
@@ -170,7 +170,7 @@ ui::text_template : txt.dashboardgps.limit.scania.s_electric {
 }
 ui::text_template : txt.dashboardgps.speed.scania.s_electric {
  name: "Dashboard GPS Speed and Limit - current speed (Scania S Electric)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=1.55 yscale=1.55>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.0075 yscale=1.0075>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.volvo.fh_2012 {
  name: "Dashboard GPS Speed and Limit - speed limit (Volvo FH 2012)"
@@ -178,7 +178,7 @@ ui::text_template : txt.dashboardgps.limit.volvo.fh_2012 {
 }
 ui::text_template : txt.dashboardgps.speed.volvo.fh_2012 {
  name: "Dashboard GPS Speed and Limit - current speed (Volvo FH 2012)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=2.06 yscale=2.06>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=1.339 yscale=1.339>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.volvo.fh_2021 {
  name: "Dashboard GPS Speed and Limit - speed limit (Volvo FH 2021)"
@@ -186,7 +186,7 @@ ui::text_template : txt.dashboardgps.limit.volvo.fh_2021 {
 }
 ui::text_template : txt.dashboardgps.speed.volvo.fh_2021 {
  name: "Dashboard GPS Speed and Limit - current speed (Volvo FH 2021)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=5.06 yscale=5.06>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.289 yscale=3.289>%0</font></align>"
 }
 ui::text_template : txt.dashboardgps.limit.volvo.fh_2024 {
  name: "Dashboard GPS Speed and Limit - speed limit (Volvo FH 2024)"
@@ -194,6 +194,6 @@ ui::text_template : txt.dashboardgps.limit.volvo.fh_2024 {
 }
 ui::text_template : txt.dashboardgps.speed.volvo.fh_2024 {
  name: "Dashboard GPS Speed and Limit - current speed (Volvo FH 2024)"
- text: "<align hstyle=center vstyle=center><font face=/font/db_normal.font xscale=5.0 yscale=5.0>%0</font></align>"
+ text: "<align hstyle=center vstyle=center><font face=/font/db_helvetica_neue_cond_o.font xscale=3.25 yscale=3.25>%0</font></align>"
 }
 }
