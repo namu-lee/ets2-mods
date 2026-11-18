@@ -70,6 +70,8 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - name: Install build dependencies
+        run: python -m pip install -r requirements.txt
       - name: Build the mod
         id: package
         env:
@@ -110,8 +112,8 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Install Pillow
-        run: python -m pip install pillow
+      - name: Install Workshop build dependencies
+        run: python -m pip install -r requirements.txt pillow
       - name: Build the Workshop ZIP
         env:
           MOD: ${{ needs.select.outputs.mod }}
@@ -134,6 +136,11 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install description converter
+        run: python -m pip install -r requirements.txt
       - uses: actions/download-artifact@v8
         with:
           name: workshop-package.zip
@@ -143,7 +150,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           ITEM_ID: ${{ needs.select.outputs.workshop_item_id }}
+          MOD: ${{ needs.select.outputs.mod }}
         run: |
+          function ConvertTo-VdfValue([string]$value) {
+              $escaped = $value.Replace('\', '\\').Replace('"', '\"').Replace("`t", '\t')
+              return $escaped -replace '\r\n?|\n', '\n'
+          }
+
           $archive = Join-Path $env:RUNNER_TEMP 'workshop-package.zip'
           $unpacked = Join-Path $env:RUNNER_TEMP 'workshop-package'
           Expand-Archive -LiteralPath $archive -DestinationPath $unpacked
@@ -151,15 +164,30 @@ jobs:
           if (-not (Test-Path -LiteralPath (Join-Path $content 'versions.sii') -PathType Leaf)) {
               throw 'The Workshop package is missing versions.sii.'
           }
+          $preview = (Resolve-Path -LiteralPath "mods/$env:MOD/icon.jpg" -ErrorAction Stop).ProviderPath
 
           . .\.github\scripts\release-notes.ps1
           $message = Get-ReleaseTagMessage
           if ([string]::IsNullOrWhiteSpace($message)) {
               $message = "Release $env:GITHUB_REF_NAME"
           }
-          $changeNote = $message.Replace('\', '\\').Replace('"', '\"')
-          $changeNote = $changeNote.Replace("`t", '\t') -replace '\r\n?|\n', '\n'
-          $vdfContentPath = $content.Replace('\', '\\')
+          $descriptionFile = Join-Path $env:RUNNER_TEMP 'workshop-description.txt'
+          python -c @'
+          from pathlib import Path
+          from sys import argv
+
+          from scripts.build import render_description
+
+          description = render_description(Path(argv[1]), to="bbcode_steam")
+          Path(argv[2]).write_text(description, encoding="utf-8", newline="\n")
+          '@ "mods/$env:MOD/description.md" "$descriptionFile"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $description = (Get-Content -Raw -Encoding utf8 -LiteralPath $descriptionFile).TrimEnd("`r`n".ToCharArray())
+
+          $workshopDescription = ConvertTo-VdfValue $description
+          $changeNote = ConvertTo-VdfValue $message
+          $vdfContentPath = ConvertTo-VdfValue $content
+          $vdfPreviewPath = ConvertTo-VdfValue $preview
           $vdf = Join-Path $env:RUNNER_TEMP 'workshop-update.vdf'
           @"
           "workshopitem"
@@ -167,6 +195,8 @@ jobs:
               "appid"           "227300"
               "publishedfileid" "$env:ITEM_ID"
               "contentfolder"   "$vdfContentPath"
+              "previewfile"     "$vdfPreviewPath"
+              "description"     "$workshopDescription"
               "changenote"      "$changeNote"
           }
           "@ | Set-Content -LiteralPath $vdf -Encoding utf8NoBOM

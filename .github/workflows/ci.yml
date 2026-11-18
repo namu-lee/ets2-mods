@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - name: Install build dependencies
+        run: python -m pip install -r requirements.txt
       - name: Build affected mods
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
@@ -33,7 +35,7 @@ jobs:
               if ($LASTEXITCODE -eq 0) {
                   $changes = @(git -c core.quotepath=false diff --no-renames --name-only "$env:BASE_SHA" HEAD)
                   if ($LASTEXITCODE -ne 0) { throw 'Could not list the changed files.' }
-                  if (-not ($changes -match '^(scripts/|\.github/workflows/ci\.yml$)')) {
+                  if (-not ($changes -match '^(scripts/|requirements\.txt$|\.github/workflows/ci\.yml$)')) {
                       $changedMods = @($changes | ForEach-Object {
                           if ($_ -match '^mods/([^/]+)/') { $Matches[1] }
                       })

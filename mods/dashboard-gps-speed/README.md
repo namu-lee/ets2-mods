@@ -1,34 +1,12 @@
-# [ETS2 Mod] Dashboard GPS Speed and Limit
+# Dashboard GPS Speed and Limit
 
 Adds a speed limit sign and current speed to the dashboard GPS in all SCS trucks and coaches.
 
-Original contributions are licensed under the [GNU General Public License v3.0](LICENSE).
-
-## Installation
-
-Subscribe the official [steam workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859) item.
-
-## Compatibility
-
-The mod may conflict with mods that modify the cluster or dashboard.
-
-## Screenshots
-
-See full list of screenshots [here](screenshots/README.md).
-
-![Dashboard GPS speed and limit screenshots](screenshots/gps-preview.png)
-
 ## Development
-
-Run these commands from the repository root. See the [shared build and release guide](../../README.md) for Workshop packaging and release tags.
-
-```powershell
-python scripts/build.py mods/dashboard-gps-speed
-```
 
 ### Rebuild screenshot preview
 
-On `main`, [Actions](https://github.com/namu-lee/ets2-mods/actions/workflows/preview.yml) rebuilds and commits the preview PNG when its inputs change.
+The script builds [preview.jpg](preview.jpg) at 1920×1080 and keeps it under 1 MB for Steam Workshop. On `main`, [Actions](https://github.com/namu-lee/ets2-mods/actions/workflows/preview.yml) rebuilds and commits it when its inputs change.
 
 ```powershell
 python -m pip install numpy pillow

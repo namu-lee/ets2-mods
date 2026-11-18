@@ -1,0 +1,269 @@
+SiiNunit
+{
+ui::window : _nameless.063ae3791 {
+ window_handler: null
+ clip_children: false
+ keep_aspect: none
+ user_string_data: ""
+ first_direction_focus_id: 0
+ fitting: false
+ my_children: 4
+ my_children[0]: _nameless._.bckg
+ my_children[1]: _nameless._.screen1
+ my_children[2]: _nameless._.screen2
+ my_children[3]: _nameless._.parking1
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 0
+ area_r: 800
+ area_t: 480
+ area_b: 0
+ id: 0
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: null
+}
+
+ui::text : _nameless._.bckg {
+ text: "<img src=/material/ui/white.mat color=FF3B2B20 xscale=stretch yscale=stretch>"
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.063ae3791
+}
+
+ui::group : _nameless._.screen1 {
+ fitting: false
+ my_children: 5
+ my_children[0]: _nameless._.bare_map
+ my_children[1]: _nameless._.speed.limit
+ my_children[2]: _nameless._.clock
+ my_children[3]: _nameless._.rio
+ my_children[4]: _nameless._.arrows
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 0
+ area_r: 800
+ area_t: 480
+ area_b: 0
+ id: 100
+ layer: 1
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.063ae3791
+}
+
+ui::text : _nameless._.bare_map {
+ text: "<img src=/material/ui/dashboard/bare_map.mat left=0.125 right=0.875 bottom=0.4152 top=0.8392 xscale=stretch yscale=stretch>"
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 1
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.screen1
+}
+
+ui::text_common : _nameless._.speed.limit {
+ value: 50
+ look_template: txt.man_lion2024.speed_lmt
+ text: ""
+ coords_l: 7
+ coords_r: 107
+ coords_t: 418
+ coords_b: 318
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1610
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.screen1
+}
+
+ui::text_common : _nameless._.clock {
+ value: "23:59"
+ look_template: txt.man_lion2024.normalc
+ text: ""
+ coords_l: 6
+ coords_r: 101
+ coords_t: 462
+ coords_b: 426
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1050
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.screen1
+}
+
+ui::text_common : _nameless._.rio {
+ value: TA
+ look_template: txt.man_lion2024.normalr
+ text: ""
+ coords_l: 673
+ coords_r: 788
+ coords_t: 462
+ coords_b: 426
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.screen1
+}
+
+ui::text : _nameless._.arrows {
+ text: "<color value=FFFFFFFF><align hstyle=left><img src=/material/ui/dashboard/man_lions_24/display_over.mat left=0.5 right=0.53125 bottom=0.6875 top=0.75 height=40 width=40></align>\r\n<ret><align vstyle=center hstyle=right><img src=/material/ui/dashboard/man_lions_24/display_over.mat right=0.5 left=0.53125 top=0.625 bottom=0.685546875 height=40 width=40></align>\r\n<ret><align vstyle=bottom hstyle=left><img src=/material/ui/dashboard/man_lions_24/display_over.mat xscale=stretch yscale=stretch left=0.4648 right=0.4960 top=0.6875 bottom=0.75 height=40 width=40></align>"
+ coords_l: 380
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.screen1
+}
+
+ui::group : _nameless._.screen2 {
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless._.turned_off
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 0
+ area_r: 800
+ area_t: 480
+ area_b: 0
+ id: 200
+ layer: 1
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.063ae3791
+}
+
+ui::text : _nameless._.turned_off {
+ text: "<img src=/material/ui/white.mat color=ff000000 xscale=stretch yscale=stretch >"
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 3
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.screen2
+}
+
+ui::group : _nameless._.parking1 {
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless._.blck_bgr
+ my_children[1]: _nameless._.rear_cam
+ my_children[2]: _nameless._.arrows2
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 0
+ area_r: 800
+ area_t: 480
+ area_b: 0
+ id: 910
+ layer: 1
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.063ae3791
+}
+
+ui::text : _nameless._.blck_bgr {
+ text: "<img src=/material/ui/white.mat color=FFFFFFFF xscale=stretch yscale=stretch>"
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 3
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.parking1
+}
+
+ui::text : _nameless._.rear_cam {
+ text: "<img src=/material/environment/mirror/park_1x1_ui.mat yscale=stretch xscale=stretch top=1 bottom=0 left=0 right=1>"
+ coords_l: 0
+ coords_r: 800
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.parking1
+}
+
+ui::text : _nameless._.arrows2 {
+ text: "<color value=FFFFFFFF><align hstyle=right><img src=/material/ui/dashboard/man_lions_24/display_over.mat left=0.5 right=0.53125 bottom=0.6875 top=0.75 height=40 width=40></align>\r\n<ret><align vstyle=center hstyle=left><img src=/material/ui/dashboard/man_lions_24/display_over.mat left=0.5 right=0.53125 top=0.625 bottom=0.685546875 height=40 width=40></align>\r\n<ret><align vstyle=bottom hstyle=right><img src=/material/ui/dashboard/man_lions_24/display_over.mat xscale=stretch yscale=stretch left=0.4648 right=0.4960 top=0.6875 bottom=0.75 height=40 width=40></align>"
+ coords_l: 0
+ coords_r: 420
+ coords_t: 480
+ coords_b: 0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 5
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.parking1
+}
+
+}

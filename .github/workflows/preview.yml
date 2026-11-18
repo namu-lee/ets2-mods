@@ -5,7 +5,6 @@ on:
     branches: [main]
     paths:
       - 'mods/dashboard-gps-speed/screenshots/*.png'
-      - '!mods/dashboard-gps-speed/screenshots/gps-preview.png'
       - 'mods/dashboard-gps-speed/screenshots/README.md'
       - 'mods/dashboard-gps-speed/build_preview.py'
       - '.github/workflows/preview.yml'
@@ -36,7 +35,7 @@ jobs:
       - name: Commit and push the updated preview
         shell: bash
         run: |
-          preview=mods/dashboard-gps-speed/screenshots/gps-preview.png
+          preview=mods/dashboard-gps-speed/preview.jpg
           git add -- "$preview"
           if git diff --cached --quiet -- "$preview"; then
             exit 0

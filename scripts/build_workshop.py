@@ -6,7 +6,7 @@ from tempfile import TemporaryDirectory
 
 from PIL import Image, ImageOps
 
-from build import BUILD_DIRECTORY, SOURCE_DIRECTORY, write_archive
+from build import BUILD_DIRECTORY, SOURCE_DIRECTORY, description_filename, render_description, write_archive
 
 
 ICON = "mod_icon.jpg"
@@ -23,23 +23,13 @@ VERSIONS = """SiiNunit
 def workshop_manifest(source):
     manifest = (source / "manifest.sii").read_text(encoding="utf-8-sig")
     lines = []
-    description = ""
     for line in manifest.splitlines():
-        field, _, value = line.partition(":")
-        field = field.partition("[")[0].strip()
+        field = line.partition(":")[0].partition("[")[0].strip()
         if field in {"display_name", "icon", "compatible_versions"}:
             continue
         lines.append(line)
         if field == "description_file":
-            description = value.strip().strip('"')
             lines.append(f'    icon: "{ICON}"')
-    description_path = Path(description)
-    if (
-        description_path.name != description
-        or description_path.suffix.lower() != ".txt"
-        or not (source / description).is_file()
-    ):
-        raise ValueError("The source manifest must reference a .txt description beside the manifest.")
     return "\n".join(lines) + "\n"
 
 
@@ -57,11 +47,14 @@ def build_mod_icon(icon_path):
         return data.getvalue()
 
 
-def build_workshop(source, icon_path, output):
+def build_workshop(mod_directory, icon_path, output):
+    source = mod_directory / SOURCE_DIRECTORY
     if output.resolve().is_relative_to(source.resolve()):
         raise ValueError("Choose an output file outside the source directory.")
 
     manifest = workshop_manifest(source)
+    filename = description_filename(source / "manifest.sii")
+    description = render_description(mod_directory / "description.md")
     icon = build_mod_icon(icon_path)
 
     with TemporaryDirectory() as workspace:
@@ -72,7 +65,8 @@ def build_workshop(source, icon_path, output):
         (content / "manifest.sii").write_text(manifest, encoding="utf-8", newline="\n")
         (content / ICON).write_bytes(icon)
         (workshop / "versions.sii").write_text(VERSIONS, encoding="utf-8", newline="\n")
-        write_archive(staging, output)
+        description_entry = (content / filename).relative_to(staging).as_posix()
+        write_archive(staging, output, generated_files={description_entry: description.encode("utf-8")})
 
 
 if __name__ == "__main__":
@@ -84,5 +78,5 @@ if __name__ == "__main__":
     if not icon.is_file():
         parser.error(f"Add the Workshop preview image at {icon}.")
     output = args.mod_directory / BUILD_DIRECTORY / "workshop-package.zip"
-    build_workshop(args.mod_directory / SOURCE_DIRECTORY, icon, output)
+    build_workshop(args.mod_directory, icon, output)
     print(output.resolve())

@@ -1,4 +1,4 @@
-"""Create the README's GPS contact sheet from the original ETS2 screenshots."""
+"""Create the Workshop GPS preview from the original ETS2 screenshots."""
 
 import argparse
 import re
@@ -7,16 +7,20 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
-SCREENSHOTS = Path(__file__).resolve().parent / "screenshots"
-PREVIEW = SCREENSHOTS / "gps-preview.png"
+MOD_DIRECTORY = Path(__file__).resolve().parent
+SCREENSHOTS = MOD_DIRECTORY / "screenshots"
+PREVIEW = MOD_DIRECTORY / "preview.jpg"
+PREVIEW_SIZE = (1920, 1080)
+PREVIEW_BYTE_LIMIT = 1_000_000
+BACKGROUND = "#10151d"
 SCREENSHOT_SIZE = (2560, 1440)
 SEARCH_ORIGIN = (1350, 695)
 CROP_SIZE = (174, 100)
 CARD_WIDTH, IMAGE_HEIGHT, LABEL_HEIGHT = 258, 148, 52
-SPACING, COLUMNS = 12, 4
+SPACING, COLUMNS = 12, 7
 
 SAMPLE_ROW = re.compile(
     r"^\| ([^|]+?) \| ([^|]+?) \| [^|]+ \| [^|]+ "
@@ -42,7 +46,7 @@ SAMPLES_WITH_HUD = {
 def sample_rows():
     rows = SAMPLE_ROW.findall((SCREENSHOTS / "README.md").read_text(encoding="utf-8-sig"))
     filenames = {filename for _, _, filename in rows}
-    originals = {path.name for path in SCREENSHOTS.glob("*.png") if path != PREVIEW}
+    originals = {path.name for path in SCREENSHOTS.glob("*.png")}
     if not rows or len(filenames) != len(rows):
         raise ValueError("The sample table must list each original screenshot once.")
     if filenames != originals:
@@ -136,28 +140,30 @@ def load_font(preferred, fallback, size):
 
 
 def build_preview(output):
-    rows = sample_rows()
     output = output.resolve()
-    if output.suffix.lower() != ".png":
-        raise ValueError("The preview output must be a .png file.")
-    if any(output == (SCREENSHOTS / filename).resolve() for _, _, filename in rows):
-        raise ValueError("Choose a preview output separate from the original screenshots.")
+    if output.suffix.lower() not in {".jpg", ".jpeg"}:
+        raise ValueError("The preview output must be a JPEG file.")
+    rows = sample_rows()
     card_height = LABEL_HEIGHT + IMAGE_HEIGHT
+    column_stride = CARD_WIDTH + SPACING
     preview = Image.new(
         "RGB",
         (
-            SPACING + COLUMNS * (CARD_WIDTH + SPACING),
+            SPACING + COLUMNS * column_stride,
             SPACING + ceil(len(rows) / COLUMNS) * (card_height + SPACING),
         ),
-        "#10151d",
+        BACKGROUND,
     )
     draw = ImageDraw.Draw(preview)
     heading_font = load_font("segoeuib.ttf", "DejaVuSans-Bold.ttf", 17)
     trim_font = load_font("segoeui.ttf", "DejaVuSans.ttf", 15)
 
     for index, (vehicle, trim, filename) in enumerate(rows):
-        x = SPACING + index % COLUMNS * (CARD_WIDTH + SPACING)
-        y = SPACING + index // COLUMNS * (card_height + SPACING)
+        row, column = divmod(index, COLUMNS)
+        cards_in_row = min(COLUMNS, len(rows) - row * COLUMNS)
+        row_offset = (COLUMNS - cards_in_row) * column_stride // 2
+        x = SPACING + row_offset + column * column_stride
+        y = SPACING + row * (card_height + SPACING)
         draw.rounded_rectangle(
             (x, y, x + CARD_WIDTH - 1, y + card_height - 1), radius=7, fill="#1b2430"
         )
@@ -168,16 +174,21 @@ def build_preview(output):
         if trim != "—":
             draw.text((x + 10, y + 28), trim, font=trim_font, fill="#b1c3da")
 
+    preview = ImageOps.pad(preview, PREVIEW_SIZE, Image.Resampling.LANCZOS, color=BACKGROUND)
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent) as workspace:
-        staged = Path(workspace) / "preview.png"
-        preview.save(staged, optimize=True)
-        staged.replace(output)
+        staged = Path(workspace) / "preview.jpg"
+        for quality in range(95, 49, -5):
+            preview.save(staged, quality=quality, optimize=True)
+            if staged.stat().st_size < PREVIEW_BYTE_LIMIT:
+                staged.replace(output)
+                return
+    raise ValueError("The preview could not be compressed to under 1 MB.")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=PREVIEW, help="Generated PNG path")
+    parser.add_argument("--output", type=Path, default=PREVIEW, help="Generated JPEG path")
     options = parser.parse_args()
     try:
         build_preview(options.output)
