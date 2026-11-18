@@ -52,5 +52,5 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: scs-packages
-          path: mods/*/build/*.scs
+          path: build/*/*.scs
           if-no-files-found: ignore

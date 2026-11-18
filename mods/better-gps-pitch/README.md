@@ -22,7 +22,7 @@ This mod replaces `def/map_data.sii` and the stock GPS layouts. Map overhauls an
 
 ## Development
 
-Install the [shared build dependencies](../../README.md#local-builds), then build `mods/better-gps-pitch/build/ets2-better-gps-pitch.scs` from the repository root.
+Install the [shared build dependencies](../../README.md#local-builds), then build `build/better-gps-pitch/ets2-better-gps-pitch.scs` from the repository root.
 
 ```powershell
 python scripts/build.py mods/better-gps-pitch

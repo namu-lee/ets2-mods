@@ -17,7 +17,7 @@ python -m pip install -r requirements.txt
 python scripts/build.py mods/MOD_NAME
 ```
 
-Each mod has a `src/` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put the Workshop image at `icon.jpg` beside `mod.json`. Build outputs go into that mod's `build/` directory.
+Each mod has a `src/` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put the Workshop image at `icon.jpg` beside `mod.json`. The `.scs` and Workshop ZIP go into `build/<mod-name>/` at the repository root.
 
 Edit the mod's `description.md` to update its in-game and Workshop descriptions. Both package builds use the Pandoc bundled with `pypandoc-binary` to generate the plain-text file specified by `description_file` in `manifest.sii`. In-game descriptions keep the link text. The Workshop upload converts the same Markdown to Steam BBCode with clickable links.
 

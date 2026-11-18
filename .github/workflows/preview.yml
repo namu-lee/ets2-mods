@@ -7,6 +7,7 @@ on:
       - 'mods/dashboard-gps-speed/screenshots/*.png'
       - 'mods/dashboard-gps-speed/screenshots/README.md'
       - 'mods/dashboard-gps-speed/build_preview.py'
+      - 'requirements.txt'
       - '.github/workflows/preview.yml'
   workflow_dispatch:
 
@@ -29,7 +30,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install preview dependencies
-        run: python -m pip install numpy pillow
+        run: python -m pip install -r requirements.txt
       - name: Build the preview
         run: python mods/dashboard-gps-speed/build_preview.py
       - name: Commit and push the updated preview

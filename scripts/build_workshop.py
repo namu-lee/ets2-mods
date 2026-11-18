@@ -77,6 +77,6 @@ if __name__ == "__main__":
     icon = args.mod_directory / "icon.jpg"
     if not icon.is_file():
         parser.error(f"Add the Workshop preview image at {icon}.")
-    output = args.mod_directory / BUILD_DIRECTORY / "workshop-package.zip"
+    output = BUILD_DIRECTORY / args.mod_directory.resolve().name / "workshop-package.zip"
     build_workshop(args.mod_directory, icon, output)
     print(output.resolve())

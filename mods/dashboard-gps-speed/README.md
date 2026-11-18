@@ -9,7 +9,7 @@ Adds a speed limit sign and current speed to the dashboard GPS in all SCS trucks
 The script builds [preview.jpg](preview.jpg) at 1920×1080 and keeps it under 1 MB for Steam Workshop. On `main`, [Actions](https://github.com/namu-lee/ets2-mods/actions/workflows/preview.yml) rebuilds and commits it when its inputs change.
 
 ```powershell
-python -m pip install numpy pillow
+python -m pip install -r requirements.txt
 python mods/dashboard-gps-speed/build_preview.py
 ```
 

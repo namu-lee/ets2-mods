@@ -10,7 +10,7 @@ import pypandoc
 
 
 SOURCE_DIRECTORY = Path("src")
-BUILD_DIRECTORY = Path("build")
+BUILD_DIRECTORY = Path(__file__).resolve().parents[1] / "build"
 DESCRIPTION_FIELD = re.compile(r'^[ \t]*description_file[ \t]*:[ \t]*"([^"\r\n]+)"[ \t]*(?:#.*)?$', re.MULTILINE)
 
 
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         filename = package_filename(filename)
     except argparse.ArgumentTypeError as error:
         parser.error(str(error))
-    output = args.mod_directory / BUILD_DIRECTORY / filename
+    output = BUILD_DIRECTORY / args.mod_directory.resolve().name / filename
     description = render_description(args.mod_directory / "description.md")
     write_archive(source, output, generated_files={description_filename(manifest): description.encode("utf-8")})
     print(output.resolve())
