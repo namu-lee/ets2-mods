@@ -1,0 +1,19 @@
+No Minimap
+Source code: https://github.com/namu-lee/ets2-no-minimap
+
+Description
+Hides the HUD minimap on desktop and in VR. Keep the Navigation widget enabled to see the clock, rest indicators, and route ETA.
+
+- The clock, fatigue gauge, and mandatory break timer share one row. The layout adjusts to the enabled indicators.
+- The ETA appears when a destination is set. When the route is cleared, the ETA row folds away and the widgets above it move down.
+
+Compatibility
+- Tested on ETS2 1.62.3.3.
+- May conflict with mods that modify the Route Advisor. If two mods change the same layout, the higher-priority mod takes precedence.
+
+Bug reports and feature requests
+If you run into a bug or have a feature suggestion, please feel free to leave a comment below or open an issue on GitHub.
+https://github.com/namu-lee/ets2-no-minimap/issues
+
+License
+Original contributions are licensed under the GNU General Public License v3.0 (GPLv3). Euro Truck Simulator 2 game assets are subject to their respective rights holders’ terms.

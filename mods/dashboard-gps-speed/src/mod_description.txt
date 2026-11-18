@@ -1,0 +1,32 @@
+Dashboard GPS Speed and Limit
+
+Screenshots by vehicle
+https://github.com/namu-lee/ets2-dashboard-gps-speed/blob/main/screenshots/README.md
+
+Source code
+https://github.com/namu-lee/ets2-dashboard-gps-speed
+
+Description
+Adds a speed limit sign on the top left corner to your dashboard GPS, with
+your current speed displayed directly below it.
+
+- Size and placement are adjusted to fit each GPS screen and avoid
+  overlapping its controls.
+- Supports left- and right-hand-drive interiors on SCS trucks and Coaches
+  DLC vehicles equipped with a factory GPS.
+
+Compatibility
+- Works with ETS2 1.62 and above.
+- May conflict with mods that change the dashboard or cluster. Any mod with
+  higher priority wins.
+
+Bug reports and feature requests
+If you run into a bug or have a feature suggestion, please feel free to
+leave a comment on Steam Workshop or open an issue on GitHub.
+https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859
+https://github.com/namu-lee/ets2-dashboard-gps-speed/issues
+
+License
+The original contributions to this mod are licensed under the GNU General
+Public License, version 3 (GPLv3). Euro Truck Simulator 2 game content
+remains subject to the terms of its respective rights holders.

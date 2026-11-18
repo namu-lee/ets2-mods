@@ -1,0 +1,10 @@
+SiiNunit
+{
+mod_package : .no_minimap
+{
+    display_name: "No Minimap"
+    package_version: "1.0.1"
+    category[]: "ui"
+    description_file: "mod_description.txt"
+}
+}

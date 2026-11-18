@@ -1,0 +1,2448 @@
+SiiNunit
+{
+ui::window : _nameless.wnd {
+ window_handler: _nameless.29d.cc20
+ clip_children: false
+ keep_aspect: none
+ user_string_data: ""
+ first_direction_focus_id: 0
+ fitting: false
+ my_children: 5
+ my_children[0]: _nameless.245.bd40
+ my_children[1]: _nameless._.adviser.standard.position
+ my_children[2]: _nameless._.adviser.uk.prosition
+ my_children[3]: _nameless._.radio
+ my_children[4]: _nameless._.gmeter
+ coords_l: 0
+ coords_r: 1440
+ coords_t: 900
+ coords_b: 0
+ area_l: 0
+ area_r: 1440
+ area_t: 900
+ area_b: 0
+ id: 0
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: null
+}
+
+adviser_hud_dispatch_hdl : _nameless.29d.cc20 {
+ window_link: _nameless.wnd
+}
+
+ui::linear_layout : _nameless.245.bd40 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: bottom
+ alignment_x: center
+ dimension: y
+ fitting: false
+ my_children: 8
+ my_children[0]: _nameless._.chat
+ my_children[1]: _nameless._.running.line.widget
+ my_children[2]: _nameless._.autoparking
+ my_children[3]: _nameless._.tourist.board
+ my_children[4]: _nameless._.finances
+ my_children[5]: _nameless._.damage
+ my_children[6]: _nameless._.job.info
+ my_children[7]: _nameless._.adviser.widget
+ coords_l: 581
+ coords_r: 861
+ coords_t: 734
+ coords_b: 134
+ area_l: 581
+ area_r: 861
+ area_t: 734
+ area_b: 134
+ id: 100
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.wnd
+}
+
+ui::portal : _nameless._.chat {
+ child_path: "/ui/adviser_chat.sii"
+ hslider_id: -1
+ vslider_id: -1
+ fitting: false
+ my_children: 0
+ coords_l: 570
+ coords_r: 872
+ coords_t: 958
+ coords_b: 839
+ area_l: 570
+ area_r: 872
+ area_t: 958
+ area_b: 839
+ id: 8000
+ layer: 10
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::group : _nameless._.running.line.widget {
+ fitting: true
+ my_children: 3
+ my_children[0]: _nameless.179.29a0
+ my_children[1]: _nameless.316.4f40
+ my_children[2]: _nameless.15d.1e00
+ coords_l: 581
+ coords_r: 861
+ coords_t: 834
+ coords_b: 808
+ area_l: 581
+ area_r: 861
+ area_t: 834
+ area_b: 808
+ id: 2000
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::text_common : _nameless.179.29a0 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 834
+ coords_b: 808
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 2001
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.running.line.widget
+}
+
+ui::text : _nameless.316.4f40 {
+ text: "<img src=/material/ui/adviser/info.mat color=@@clr_txt@@ xscale=stretch yscale=stretch>"
+ coords_l: 586
+ coords_r: 602
+ coords_t: 829
+ coords_b: 813
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 5
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.running.line.widget
+}
+
+ui::portal : _nameless.15d.1e00 {
+ child_path: "/ui/adviser_running_line.sii"
+ hslider_id: -1
+ vslider_id: -1
+ fitting: false
+ my_children: 0
+ coords_l: 607
+ coords_r: 861
+ coords_t: 834
+ coords_b: 808
+ area_l: 607
+ area_r: 861
+ area_t: 834
+ area_b: 808
+ id: 2300
+ layer: 5
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.running.line.widget
+}
+
+ui::group : _nameless._.autoparking {
+ fitting: true
+ my_children: 3
+ my_children[0]: _nameless.2d8.b020
+ my_children[1]: _nameless.297.c890
+ my_children[2]: _nameless.2d8.acc0
+ coords_l: 581
+ coords_r: 861
+ coords_t: 803
+ coords_b: 777
+ area_l: 581
+ area_r: 861
+ area_t: 803
+ area_b: 777
+ id: 3000
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::text_common : _nameless.2d8.b020 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 803
+ coords_b: 777
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 3001
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.autoparking
+}
+
+ui::text : _nameless.297.c890 {
+ text: "<img src=/material/ui/adviser/autoparking_on.mat color=@@clr_txt@@ xscale=stretch yscale=stretch>"
+ coords_l: 586
+ coords_r: 602
+ coords_t: 798
+ coords_b: 782
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 3010
+ layer: 5
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.autoparking
+}
+
+ui::text_common : _nameless.2d8.acc0 {
+ value: ""
+ look_template: txt.normal.left
+ text: ""
+ coords_l: 607
+ coords_r: 861
+ coords_t: 803
+ coords_b: 777
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 3020
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.autoparking
+}
+
+ui::group : _nameless._.tourist.board {
+ fitting: false
+ my_children: 5
+ my_children[0]: _nameless.4b2.ddf0
+ my_children[1]: _nameless.4b2.eff0
+ my_children[2]: _nameless.4b2.f2f0
+ my_children[3]: _nameless.4b2.e270
+ my_children[4]: _nameless.25f.0950
+ coords_l: 581
+ coords_r: 861
+ coords_t: 772
+ coords_b: 546
+ area_l: 581
+ area_r: 861
+ area_t: 772
+ area_b: 546
+ id: 9000
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::text_common : _nameless.4b2.ddf0 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 772
+ coords_b: 546
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 9001
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.tourist.board
+}
+
+ui::text_common : _nameless.4b2.eff0 {
+ value: 59595966
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 586
+ coords_r: 856
+ coords_t: 767
+ coords_b: 725
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 9002
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.tourist.board
+}
+
+ui::text_common : _nameless.4b2.f2f0 {
+ value: "Name|Area"
+ look_template: txt.tour_board
+ text: ""
+ coords_l: 586
+ coords_r: 856
+ coords_t: 767
+ coords_b: 725
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 9020
+ layer: 28
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.tourist.board
+}
+
+ui::text_common : _nameless.4b2.e270 {
+ value: "/material/postcard/background_postcard.mat|270|152|0.0|1.0|0.0|1.0"
+ look_template: txt.tour_image
+ text: ""
+ coords_l: 586
+ coords_r: 856
+ coords_t: 712
+ coords_b: 560
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 9021
+ layer: 30
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.tourist.board
+}
+
+ui::text : _nameless.25f.0950 {
+ text: "<img src=/material/postcard/unlocked_postcard.mat width=270 height=152>"
+ coords_l: 586
+ coords_r: 856
+ coords_t: 712
+ coords_b: 560
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 9022
+ layer: 31
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.tourist.board
+}
+
+ui::group : _nameless._.finances {
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.1ac.2d80
+ my_children[1]: _nameless.15a.8b90
+ my_children[2]: _nameless.300.c460
+ coords_l: 581
+ coords_r: 861
+ coords_t: 541
+ coords_b: 515
+ area_l: 581
+ area_r: 861
+ area_t: 541
+ area_b: 515
+ id: 4000
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::text_common : _nameless.1ac.2d80 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 541
+ coords_b: 515
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 4001
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.finances
+}
+
+ui::text : _nameless.15a.8b90 {
+ text: "<img src=/material/ui/adviser/bank.mat color=@@clr_txt@@ xscale=stretch yscale=stretch>"
+ coords_l: 586
+ coords_r: 602
+ coords_t: 536
+ coords_b: 520
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 4010
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.finances
+}
+
+ui::text_common : _nameless.300.c460 {
+ value: "0|0"
+ look_template: txt.adviser.finances
+ text: ""
+ coords_l: 607
+ coords_r: 856
+ coords_t: 541
+ coords_b: 515
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 4020
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.finances
+}
+
+ui::group : _nameless._.damage {
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.1ac.6110
+ my_children[1]: _nameless.175.95a0
+ coords_l: 581
+ coords_r: 861
+ coords_t: 510
+ coords_b: 484
+ area_l: 581
+ area_r: 861
+ area_t: 510
+ area_b: 484
+ id: 5000
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::text_common : _nameless.1ac.6110 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5001
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.damage
+}
+
+ui::linear_layout : _nameless.175.95a0 {
+ sizing_mode: normalize
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 5
+ inner_padding: 4
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 11
+ my_children[0]: _nameless.170.3440
+ my_children[1]: _nameless.1ad.b440
+ my_children[2]: _nameless.333.94e0
+ my_children[3]: _nameless.2c1.7650
+ my_children[4]: _nameless.164.4a70
+ my_children[5]: _nameless.1ad.ae00
+ my_children[6]: _nameless.333.b620
+ my_children[7]: _nameless.2c1.75e0
+ my_children[8]: _nameless.2cd.a3a0
+ my_children[9]: _nameless.1ad.6df0
+ my_children[10]: _nameless.333.c460
+ coords_l: 581
+ coords_r: 861
+ coords_t: 510
+ coords_b: 484
+ area_l: 581
+ area_r: 861
+ area_t: 510
+ area_b: 484
+ id: 5005
+ layer: 28
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.damage
+}
+
+ui::text_common : _nameless.170.3440 {
+ value: "/material/ui/adviser/truck_damage.mat"
+ look_template: txt.adviser.dmg_icon
+ text: ""
+ coords_l: 586
+ coords_r: 602
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5011
+ layer: 39
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.1ad.b440 {
+ value: "0%"
+ look_template: txt.normal.center
+ text: ""
+ coords_l: 606
+ coords_r: 639
+ coords_t: 510
+ coords_b: 484
+ area_l: 606
+ area_r: 639
+ area_t: 510
+ area_b: 484
+ id: 5012
+ layer: 36
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::parent_sized_view : _nameless.333.94e0 {
+ y_max_pixels: 0
+ x_max_pixels: 256
+ y_min_pixels: 0
+ x_min_pixels: 10
+ y_size_percent: 0
+ x_size_percent: 50
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.3e8.e060
+ coords_l: 643
+ coords_r: &44275554
+ coords_t: 499
+ coords_b: 495
+ area_l: 643
+ area_r: &44275554
+ area_t: 499
+ area_b: 495
+ id: 5013
+ layer: 30
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.3e8.e060 {
+ value: ""
+ look_template: txt.adviser.damagebar
+ text: ""
+ coords_l: 643
+ coords_r: &44275554
+ coords_t: 499
+ coords_b: 495
+ area_l: 643
+ area_r: &44275554
+ area_t: 499
+ area_b: 495
+ id: 5014
+ layer: 29
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.333.94e0
+}
+
+ui::padding : _nameless.2c1.7650 {
+ coords_l: &44275554
+ coords_r: &4429d553
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5015
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.164.4a70 {
+ value: "/material/ui/adviser/trailer_damage.mat"
+ look_template: txt.adviser.dmg_icon
+ text: ""
+ coords_l: &4429d553
+ coords_r: &442dd553
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5021
+ layer: 40
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.1ad.ae00 {
+ value: "0%"
+ look_template: txt.normal.center
+ text: ""
+ coords_l: &442ed553
+ coords_r: &44371553
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5022
+ layer: 37
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::parent_sized_view : _nameless.333.b620 {
+ y_max_pixels: 0
+ x_max_pixels: 256
+ y_min_pixels: 0
+ x_min_pixels: 10
+ y_size_percent: 0
+ x_size_percent: 50
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.3e8.fe10
+ coords_l: &44381554
+ coords_r: &443eaaa8
+ coords_t: 499
+ coords_b: 495
+ area_l: &44381554
+ area_r: &443eaaa8
+ area_t: 499
+ area_b: 495
+ id: 5023
+ layer: 31
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.3e8.fe10 {
+ value: ""
+ look_template: txt.adviser.damagebar
+ text: ""
+ coords_l: &44381554
+ coords_r: &443eaaa8
+ coords_t: 499
+ coords_b: 495
+ area_l: &44381554
+ area_r: &443eaaa8
+ area_t: 499
+ area_b: 495
+ id: 5024
+ layer: 32
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.333.b620
+}
+
+ui::padding : _nameless.2c1.75e0 {
+ coords_l: &443eaaa8
+ coords_r: &44412aac
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5025
+ layer: 39
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.2cd.a3a0 {
+ value: "/material/ui/adviser/cargo_damage.mat "
+ look_template: txt.adviser.dmg_icon
+ text: ""
+ coords_l: &44412aac
+ coords_r: &44452aac
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5031
+ layer: 41
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.1ad.6df0 {
+ value: "0%"
+ look_template: txt.normal.center
+ text: ""
+ coords_l: &44462aac
+ coords_r: &444e6aac
+ coords_t: 510
+ coords_b: 484
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 5032
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::parent_sized_view : _nameless.333.c460 {
+ y_max_pixels: 0
+ x_max_pixels: 256
+ y_min_pixels: 0
+ x_min_pixels: 10
+ y_size_percent: 0
+ x_size_percent: 50
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.3e9.0db0
+ coords_l: &444f6aac
+ coords_r: 856
+ coords_t: 499
+ coords_b: 495
+ area_l: &444f6aac
+ area_r: 856
+ area_t: 499
+ area_b: 495
+ id: 5033
+ layer: 34
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.175.95a0
+}
+
+ui::text_common : _nameless.3e9.0db0 {
+ value: ""
+ look_template: txt.adviser.damagebar
+ text: ""
+ coords_l: &444f6aac
+ coords_r: 856
+ coords_t: 499
+ coords_b: 495
+ area_l: &444f6aac
+ area_r: 856
+ area_t: 499
+ area_b: 495
+ id: 5034
+ layer: 35
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.333.c460
+}
+
+ui::group : _nameless._.job.info {
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.341.d400
+ my_children[1]: _nameless._.generic
+ my_children[2]: _nameless._.bus
+ coords_l: 581
+ coords_r: 861
+ coords_t: 479
+ coords_b: 383
+ area_l: 581
+ area_r: 861
+ area_t: 479
+ area_b: 383
+ id: 7000
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::text_common : _nameless.341.d400 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 479
+ coords_b: 383
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7001
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.job.info
+}
+
+ui::group : _nameless._.generic {
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.379.21b8
+ my_children[1]: _nameless.3eb.2c20
+ coords_l: 586
+ coords_r: 856
+ coords_t: 474
+ coords_b: 384
+ area_l: 586
+ area_r: 856
+ area_t: 474
+ area_b: 384
+ id: 7002
+ layer: 48
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.job.info
+}
+
+ui::group : _nameless.379.21b8 {
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.2cb.97e8
+ my_children[1]: _nameless.3eb.2440
+ coords_l: 586
+ coords_r: 856
+ coords_t: 474
+ coords_b: 434
+ area_l: 586
+ area_r: 856
+ area_t: 474
+ area_b: 434
+ id: 0
+ layer: 39
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.generic
+}
+
+ui::text_common : _nameless.2cb.97e8 {
+ value: 9A595959
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 586
+ coords_r: 856
+ coords_t: 474
+ coords_b: 434
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7002
+ layer: 30
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.379.21b8
+}
+
+ui::linear_layout : _nameless.3eb.2440 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 5
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.2cb.6fe8
+ my_children[1]: _nameless.3e7.e220
+ my_children[2]: _nameless.3ea.05d0
+ coords_l: 586
+ coords_r: 856
+ coords_t: 474
+ coords_b: 434
+ area_l: 586
+ area_r: 856
+ area_t: 474
+ area_b: 434
+ id: 0
+ layer: 42
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.379.21b8
+}
+
+ui::text_common : _nameless.2cb.6fe8 {
+ value: "/material/ui/cargo_icons/clothes.mat"
+ look_template: txt.adviser.job_icon
+ text: ""
+ coords_l: 591
+ coords_r: 631
+ coords_t: 470
+ coords_b: 438
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7010
+ layer: 40
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2440
+}
+
+ui::parent_sized_view : _nameless.3e7.e220 {
+ y_max_pixels: 0
+ x_max_pixels: 0
+ y_min_pixels: 0
+ x_min_pixels: 0
+ y_size_percent: 100
+ x_size_percent: 100
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.372.8098
+ coords_l: 636
+ coords_r: 771
+ coords_t: 474
+ coords_b: 434
+ area_l: 636
+ area_r: 771
+ area_t: 474
+ area_b: 434
+ id: 0
+ layer: 43
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2440
+}
+
+ui::linear_layout : _nameless.372.8098 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 2
+ outer_padding_x: 0
+ inner_padding: 0
+ alignment_y: top
+ alignment_x: left
+ dimension: y
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.398.e6c8
+ my_children[1]: _nameless.398.d418
+ coords_l: 636
+ coords_r: 771
+ coords_t: 474
+ coords_b: 434
+ area_l: 636
+ area_r: 771
+ area_t: 474
+ area_b: 434
+ id: 0
+ layer: 46
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3e7.e220
+}
+
+ui::parent_sized_view : _nameless.398.e6c8 {
+ y_max_pixels: 0
+ x_max_pixels: 0
+ y_min_pixels: 0
+ x_min_pixels: 0
+ y_size_percent: 50
+ x_size_percent: 100
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.21d.5250
+ coords_l: 636
+ coords_r: 771
+ coords_t: 472
+ coords_b: 454
+ area_l: 636
+ area_r: 771
+ area_t: 472
+ area_b: 454
+ id: 0
+ layer: 47
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.372.8098
+}
+
+ui::text_common : _nameless.21d.5250 {
+ value: Cargo
+ look_template: txt.normal.white.left
+ text: ""
+ coords_l: 636
+ coords_r: 771
+ coords_t: 472
+ coords_b: 454
+ area_l: 636
+ area_r: 771
+ area_t: 472
+ area_b: 454
+ id: 7011
+ layer: 41
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.398.e6c8
+}
+
+ui::parent_sized_view : _nameless.398.d418 {
+ y_max_pixels: 0
+ x_max_pixels: 0
+ y_min_pixels: 0
+ x_min_pixels: 0
+ y_size_percent: 50
+ x_size_percent: 100
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.411.3268
+ coords_l: 636
+ coords_r: 771
+ coords_t: 454
+ coords_b: 436
+ area_l: 636
+ area_r: 771
+ area_t: 454
+ area_b: 436
+ id: 0
+ layer: 47
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.372.8098
+}
+
+ui::text_common : _nameless.411.3268 {
+ value: "9 t"
+ look_template: txt.normal.white.left
+ text: ""
+ coords_l: 636
+ coords_r: 771
+ coords_t: 454
+ coords_b: 436
+ area_l: 636
+ area_r: 771
+ area_t: 454
+ area_b: 436
+ id: 7012
+ layer: 41
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.398.d418
+}
+
+ui::text_common : _nameless.3ea.05d0 {
+ value: "FF00AEFF|$999, 999 "
+ look_template: txt.normal.color.right
+ text: ""
+ coords_l: 776
+ coords_r: 851
+ coords_t: 474
+ coords_b: 434
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7013
+ layer: 41
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2440
+}
+
+ui::linear_layout : _nameless.3eb.2c20 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 5
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: top
+ alignment_x: left
+ dimension: y
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.229.32d0
+ my_children[1]: _nameless.3eb.2830
+ coords_l: 586
+ coords_r: 856
+ coords_t: 434
+ coords_b: 384
+ area_l: 586
+ area_r: 856
+ area_t: 434
+ area_b: 384
+ id: 0
+ layer: 44
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.generic
+}
+
+ui::linear_layout : _nameless.229.32d0 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.229.3570
+ my_children[1]: _nameless.219.0350
+ coords_l: 586
+ coords_r: 856
+ coords_t: 429
+ coords_b: 411
+ area_l: 586
+ area_r: 856
+ area_t: 429
+ area_b: 411
+ id: 0
+ layer: 45
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2c20
+}
+
+ui::text : _nameless.229.3570 {
+ text: "<img src=/material/ui/adviser/destination.mat color=@@clr_txt@@ width=13 height=15 left=p-4 right=p24>"
+ coords_l: 586
+ coords_r: 602
+ coords_t: 427
+ coords_b: 412
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.229.32d0
+}
+
+ui::text_common : _nameless.219.0350 {
+ value: "0|0"
+ look_template: txt.normal.white.left
+ text: ""
+ coords_l: 607
+ coords_r: 856
+ coords_t: 429
+ coords_b: 411
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7021
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.229.32d0
+}
+
+ui::linear_layout : _nameless.3eb.2830 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.1f9.e850
+ my_children[1]: _nameless.341.d880
+ coords_l: 586
+ coords_r: 856
+ coords_t: 406
+ coords_b: 388
+ area_l: 586
+ area_r: 856
+ area_t: 406
+ area_b: 388
+ id: 0
+ layer: 45
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2c20
+}
+
+ui::text : _nameless.1f9.e850 {
+ text: "<img src=/material/ui/adviser/stopwatch.mat color=@@clr_txt@@ width=13 height=15 left=-0.12 right=0.94>"
+ coords_l: 586
+ coords_r: 602
+ coords_t: 405
+ coords_b: 389
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2830
+}
+
+ui::text_common : _nameless.341.d880 {
+ value: "0|0"
+ look_template: txt.normal.left
+ text: ""
+ coords_l: 607
+ coords_r: 856
+ coords_t: 406
+ coords_b: 388
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7031
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3eb.2830
+}
+
+ui::group : _nameless._.bus {
+ fitting: false
+ my_children: 1
+ my_children[0]: _nameless.66f4.8ea8
+ coords_l: 585
+ coords_r: 855
+ coords_t: &43ef6dd4
+ coords_b: &43bfedd4
+ area_l: 585
+ area_r: 855
+ area_t: &43ef6dd4
+ area_b: &43bfedd4
+ id: 7003
+ layer: 49
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.job.info
+}
+
+ui::group : _nameless.66f4.8ea8 {
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.6707.f7b8
+ my_children[1]: _nameless.6708.01b8
+ my_children[2]: _nameless.6707.feb8
+ coords_l: 585
+ coords_r: 855
+ coords_t: &43ecedd4
+ coords_b: &43d8edd4
+ area_l: 585
+ area_r: 855
+ area_t: &43ecedd4
+ area_b: &43d8edd4
+ id: 0
+ layer: 50
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.bus
+}
+
+ui::linear_layout : _nameless.6707.f7b8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 4
+ alignment_y: bottom
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.67be.2ea8
+ my_children[1]: _nameless.67be.3268
+ my_children[2]: _nameless.67be.34e8
+ coords_l: 585
+ coords_r: 855
+ coords_t: &43ecedd4
+ coords_b: &43d8edd4
+ area_l: 585
+ area_r: 855
+ area_t: &43ecedd4
+ area_b: &43d8edd4
+ id: 0
+ layer: 51
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.66f4.8ea8
+}
+
+ui::text_common : _nameless.67be.2ea8 {
+ value: 9A595959
+ look_template: txt.background.flat
+ text: ""
+ coords_l: 585
+ coords_r: 625
+ coords_t: 473
+ coords_b: 433
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 30
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.f7b8
+}
+
+ui::text_common : _nameless.67be.3268 {
+ value: 9A595959
+ look_template: txt.background.flat
+ text: ""
+ coords_l: 629
+ coords_r: 791
+ coords_t: 473
+ coords_b: 433
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 30
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.f7b8
+}
+
+ui::text_common : _nameless.67be.34e8 {
+ value: 9A595959
+ look_template: txt.background.flat
+ text: ""
+ coords_l: 795
+ coords_r: 855
+ coords_t: 473
+ coords_b: 433
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 30
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.f7b8
+}
+
+ui::linear_layout : _nameless.6708.01b8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 2
+ alignment_y: bottom
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.67be.2ae8
+ my_children[1]: _nameless.672e.aef8
+ my_children[2]: _nameless.6715.7ec8
+ coords_l: 585
+ coords_r: 855
+ coords_t: &43ecedd4
+ coords_b: &43d8edd4
+ area_l: 585
+ area_r: 855
+ area_t: &43ecedd4
+ area_b: &43d8edd4
+ id: 0
+ layer: 52
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.66f4.8ea8
+}
+
+ui::text_common : _nameless.67be.2ae8 {
+ value: ""
+ look_template: txt.hud.bus_job.satisfaction
+ text: ""
+ coords_l: 585
+ coords_r: 625
+ coords_t: 473
+ coords_b: 433
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7100
+ layer: 53
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6708.01b8
+}
+
+ui::text_common : _nameless.672e.aef8 {
+ value: ""
+ look_template: txt.normal.center
+ text: ""
+ coords_l: 627
+ coords_r: 789
+ coords_t: 473
+ coords_b: 433
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7110
+ layer: 53
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6708.01b8
+}
+
+ui::linear_layout : _nameless.6715.7ec8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 0
+ alignment_y: center
+ alignment_x: center
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.6720.3f88
+ my_children[1]: _nameless.6720.76d8
+ coords_l: 791
+ coords_r: 853
+ coords_t: 473
+ coords_b: 433
+ area_l: 791
+ area_r: 853
+ area_t: 473
+ area_b: 433
+ id: 0
+ layer: 54
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6708.01b8
+}
+
+ui::text_common : _nameless.6720.3f88 {
+ value: ""
+ look_template: txt.normal.center
+ text: ""
+ coords_l: 802
+ coords_r: 822
+ coords_t: 473
+ coords_b: 433
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7120
+ layer: 55
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6715.7ec8
+}
+
+ui::text : _nameless.6720.76d8 {
+ text: "<img src=/material/ui/bus/passengers.mat xscale=stretch yscale=stretch>"
+ coords_l: 822
+ coords_r: 842
+ coords_t: 463
+ coords_b: 443
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 56
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6715.7ec8
+}
+
+ui::linear_layout : _nameless.6707.feb8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 5
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: top
+ alignment_x: left
+ dimension: y
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.6707.ffb8
+ my_children[1]: _nameless.6708.00b8
+ coords_l: 585
+ coords_r: 855
+ coords_t: &43d8edd4
+ coords_b: &43bfedd4
+ area_l: 585
+ area_r: 855
+ area_t: &43d8edd4
+ area_b: &43bfedd4
+ id: 0
+ layer: 44
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.66f4.8ea8
+}
+
+ui::linear_layout : _nameless.6707.ffb8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.670b.5678
+ my_children[1]: _nameless.67be.3b28
+ coords_l: 585
+ coords_r: 855
+ coords_t: 428
+ coords_b: 410
+ area_l: 585
+ area_r: 855
+ area_t: 428
+ area_b: 410
+ id: 0
+ layer: 45
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.feb8
+}
+
+ui::text : _nameless.670b.5678 {
+ text: "<img src=/material/ui/adviser/bus_stop.mat color=@@clr_txt@@ width=16 height=16>"
+ coords_l: 585
+ coords_r: 601
+ coords_t: 427
+ coords_b: 411
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.ffb8
+}
+
+ui::text_common : _nameless.67be.3b28 {
+ value: "0|0"
+ look_template: txt.normal.white.left
+ text: ""
+ coords_l: 606
+ coords_r: 855
+ coords_t: 428
+ coords_b: 410
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7130
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.ffb8
+}
+
+ui::linear_layout : _nameless.6708.00b8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.670b.5788
+ my_children[1]: _nameless.67be.3c68
+ coords_l: 585
+ coords_r: 855
+ coords_t: 405
+ coords_b: 387
+ area_l: 585
+ area_r: 855
+ area_t: 405
+ area_b: 387
+ id: 0
+ layer: 45
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6707.feb8
+}
+
+ui::text : _nameless.670b.5788 {
+ text: "<img src=/material/ui/adviser/stopwatch.mat color=@@clr_txt@@ width=13 height=15 left=-0.12 right=0.94>"
+ coords_l: 585
+ coords_r: 601
+ coords_t: 404
+ coords_b: 388
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6708.00b8
+}
+
+ui::text_common : _nameless.67be.3c68 {
+ value: "0|0"
+ look_template: txt.normal.left
+ text: ""
+ coords_l: 606
+ coords_r: 855
+ coords_t: 405
+ coords_b: 387
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 7140
+ layer: 38
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.6708.00b8
+}
+
+ui::linear_layout : _nameless._.adviser.widget {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: occupied_area
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 1001
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 1
+ alignment_y: bottom
+ alignment_x: center
+ dimension: y
+ fitting: true
+ my_children: 4
+ my_children[0]: _nameless.179.0fc0
+ my_children[1]: _nameless._.current.status
+ my_children[2]: _nameless.239.6290
+ my_children[3]: _nameless._.no_minimap.compat
+ coords_l: 581
+ coords_r: 861
+ coords_t: 190
+ coords_b: 134
+ area_l: 581
+ area_r: 861
+ area_t: 190
+ area_b: 134
+ id: 1000
+ layer: 1
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.245.bd40
+}
+
+ui::group : _nameless._.no_minimap.compat {
+ fitting: false
+ my_children: 6
+ my_children[0]: _nameless.16d.35c0
+ my_children[1]: _nameless.179.1560
+ my_children[2]: _nameless.2aa.ab20
+ my_children[3]: _nameless.221.60a0
+ my_children[4]: _nameless.2b3.5be0
+ my_children[5]: _nameless.3f5.9960
+ coords_l: 581
+ coords_r: 581
+ coords_t: 134
+ coords_b: 134
+ area_l: 581
+ area_r: 581
+ area_t: 134
+ area_b: 134
+ id: 0
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.adviser.widget
+}
+
+
+ui::text_common : _nameless.179.0fc0 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: 190
+ coords_b: 134
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1001
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.adviser.widget
+}
+
+ui_map : _nameless.16d.35c0 {
+ fitting: false
+ my_children: 0
+ coords_l: 4682
+ coords_r: 4952
+ coords_t: 351
+ coords_b: 161
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1700
+ layer: 10
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.no_minimap.compat
+}
+
+ui::text_common : _nameless.179.1560 {
+ value: ""
+ look_template: null
+ text: ""
+ coords_l: 4687
+ coords_r: 4947
+ coords_t: 279
+ coords_b: 238
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1770
+ layer: 15
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.no_minimap.compat
+}
+
+ui::linear_layout : _nameless.2aa.ab20 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: true
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 2
+ alignment_y: top
+ alignment_x: right
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.14f.20d0
+ my_children[1]: _nameless.256.ab30
+ coords_l: 4740
+ coords_r: 4944
+ coords_t: &433adba8
+ coords_b: &4324dba8
+ area_l: 4740
+ area_r: 4944
+ area_t: &433adba8
+ area_b: &4324dba8
+ id: 1400
+ layer: 18
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.no_minimap.compat
+}
+
+ui::text : _nameless.14f.20d0 {
+ text: "<img src=/material/ui/adviser/zoom.mat width=22 height=22>"
+ coords_l: 4922
+ coords_r: 4944
+ coords_t: 186
+ coords_b: 164
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 23
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.2aa.ab20
+}
+
+ui::text_common : _nameless.256.ab30 {
+ value: F2
+ look_template: txt.normal.right.top
+ text: ""
+ coords_l: 4740
+ coords_r: 4920
+ coords_t: 186
+ coords_b: 164
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1401
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.2aa.ab20
+}
+
+ui::text_common : _nameless.239.6290 {
+ value: "<img src=/material/ui/adviser/destination.mat width=14 height=18 color=@@clr_txt@@><offset hshift=6>20h 15min"
+ look_template: txt.normal.center
+ text: ""
+ coords_l: 586
+ coords_r: 856
+ coords_t: 161
+ coords_b: 134
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1200
+ layer: 23
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.adviser.widget
+}
+
+ui::text_common : _nameless.221.60a0 {
+ value: 100
+ look_template: txt.adv_navi_spd
+ text: ""
+ coords_l: 4686
+ coords_r: 4718
+ coords_t: 334
+ coords_b: 302
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1302
+ layer: 21
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.no_minimap.compat
+}
+
+ui::text_common : _nameless.2b3.5be0 {
+ value: "0||@@clr_white@@"
+ look_template: txt.adv_speed
+ text: ""
+ coords_l: 4682
+ coords_r: 4722
+ coords_t: 374
+ coords_b: 334
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1301
+ layer: 20
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.no_minimap.compat
+}
+
+ui::text_common : _nameless.3f5.9960 {
+ value: 9A595959
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 4682
+ coords_r: 4722
+ coords_t: 373
+ coords_b: 333
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 0
+ layer: 19
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.no_minimap.compat
+}
+
+ui::linear_layout : _nameless._.current.status {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 0
+ inner_padding: 3
+ alignment_y: center
+ alignment_x: center
+ dimension: x
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless.178.f3a0
+ my_children[1]: _nameless.38d.0ab8
+ my_children[2]: _nameless.38c.f1b8
+ coords_l: 581
+ coords_r: 861
+ coords_t: 190
+ coords_b: 162
+ area_l: 581
+ area_r: 861
+ area_t: 190
+ area_b: 162
+ id: 0
+ layer: 23
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.adviser.widget
+}
+
+ui::text_common : _nameless.178.f3a0 {
+ value: "Tue 1:08 am"
+ look_template: txt.normal.center
+ text: ""
+ coords_l: 586
+ coords_r: 718
+ coords_t: 188
+ coords_b: 164
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1101
+ layer: 17
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.current.status
+}
+
+
+ui::linear_layout : _nameless.38d.0ab8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 5
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.3d7.4db8
+ my_children[1]: _nameless.3d7.2c48
+ coords_l: 781
+ coords_r: 842
+ coords_t: 185
+ coords_b: 167
+ area_l: 781
+ area_r: 842
+ area_t: 185
+ area_b: 167
+ id: 1102
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.current.status
+}
+
+ui::text_common : _nameless.3d7.4db8 {
+ value: "@@clr_white@@"
+ look_template: txt.adv.fat_icon
+ text: ""
+ coords_l: 786
+ coords_r: 804
+ coords_t: 183
+ coords_b: 168
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1108
+ layer: 17
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.38d.0ab8
+}
+
+ui::group : _nameless.3d7.2c48 {
+ fitting: true
+ my_children: 2
+ my_children[0]: _nameless.430.cfa8
+ my_children[1]: _nameless.430.e818
+ coords_l: 809
+ coords_r: 836
+ coords_t: 178
+ coords_b: 174
+ area_l: 809
+ area_r: 836
+ area_t: 178
+ area_b: 174
+ id: 0
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.38d.0ab8
+}
+
+ui::text : _nameless.430.cfa8 {
+ text: "<color value=@@clr_white@@><img src=/material/ui/white.mat xscale=stretch yscale=stretch>"
+ coords_l: 809
+ coords_r: 821
+ coords_t: 178
+ coords_b: 174
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1104
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3d7.2c48
+}
+
+ui::text : _nameless.430.e818 {
+ text: "<color value=@@clr_inputline_border_d@@><img src=/material/ui/white.mat xscale=stretch yscale=stretch>"
+ coords_l: 809
+ coords_r: 836
+ coords_t: 178
+ coords_b: 174
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1103
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.3d7.2c48
+}
+
+ui::linear_layout : _nameless.38c.f1b8 {
+ sizing_mode: basic
+ background_padding_bottom: 0
+ background_padding_top: 0
+ background_padding_right: 0
+ background_padding_left: 0
+ background_size_computation_mode: legacy
+ background_size_computation_depth: 1
+ background_size_only_desired_depth: false
+ background_id: 0
+ reverse_order: false
+ outer_padding_y: 0
+ outer_padding_x: 5
+ inner_padding: 5
+ alignment_y: center
+ alignment_x: left
+ dimension: x
+ fitting: false
+ my_children: 2
+ my_children[0]: _nameless.3d7.3d78
+ my_children[1]: _nameless.3d7.4ef8
+ coords_l: 781
+ coords_r: 857
+ coords_t: 185
+ coords_b: 167
+ area_l: 781
+ area_r: 857
+ area_t: 185
+ area_b: 167
+ id: 1105
+ layer: 24
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.current.status
+}
+
+ui::text_common : _nameless.3d7.3d78 {
+ value: "@@clr_white@@"
+ look_template: txt.adv.md_break
+ text: ""
+ coords_l: 786
+ coords_r: 804
+ coords_t: 185
+ coords_b: 167
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1107
+ layer: 17
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.38c.f1b8
+}
+
+ui::text_common : _nameless.3d7.4ef8 {
+ value: "58 min|@@clr_white@@"
+ look_template: txt.adv.time_break
+ text: ""
+ coords_l: 809
+ coords_r: 855
+ coords_t: 185
+ coords_b: 167
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 1106
+ layer: 17
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.38c.f1b8
+}
+
+ui::group : _nameless._.adviser.standard.position {
+ fitting: false
+ my_children: 0
+ coords_l: 581
+ coords_r: 861
+ coords_t: 668
+ coords_b: 68
+ area_l: 581
+ area_r: 861
+ area_t: 668
+ area_b: 68
+ id: 50
+ layer: 3
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.wnd
+}
+
+ui::group : _nameless._.adviser.uk.prosition {
+ fitting: false
+ my_children: 0
+ coords_l: 581
+ coords_r: 861
+ coords_t: 668
+ coords_b: 68
+ area_l: 581
+ area_r: 861
+ area_t: 668
+ area_b: 68
+ id: 60
+ layer: 3
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.wnd
+}
+
+ui::group : _nameless._.radio {
+ fitting: true
+ my_children: 2
+ my_children[0]: _nameless.367.8c60
+ my_children[1]: _nameless.309.4b80
+ coords_l: 580
+ coords_r: 861
+ coords_t: &43042458
+ coords_b: 68
+ area_l: 580
+ area_r: 861
+ area_t: &43042458
+ area_b: 68
+ id: 6000
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.wnd
+}
+
+ui::text_common : _nameless.367.8c60 {
+ value: FF1E1E1E
+ look_template: txt.window.bcg_rect4
+ text: ""
+ coords_l: 581
+ coords_r: 861
+ coords_t: &43042458
+ coords_b: &428848b0
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 6001
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.radio
+}
+
+ui::portal : _nameless.309.4b80 {
+ child_path: "/ui/radio_widget_common.sii"
+ hslider_id: -1
+ vslider_id: -1
+ fitting: false
+ my_children: 0
+ coords_l: 580
+ coords_r: 860
+ coords_t: 132
+ coords_b: 68
+ area_l: 580
+ area_r: 860
+ area_t: 132
+ area_b: 68
+ id: 6100
+ layer: 25
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.radio
+}
+
+ui::group : _nameless._.gmeter {
+ fitting: false
+ my_children: 3
+ my_children[0]: _nameless._.gmeter.background
+ my_children[1]: _nameless._.gmeter.range
+ my_children[2]: _nameless._.gmeter.pointer
+ coords_l: 680
+ coords_r: 764
+ coords_t: 680
+ coords_b: 596
+ area_l: 680
+ area_r: 764
+ area_t: 680
+ area_b: 596
+ id: 10000
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: _nameless.wnd
+}
+
+ui::text : _nameless._.gmeter.background {
+ text: "<img src=/material/ui/adviser/g_force_background.mat color=FF1E1E1E>"
+ coords_l: 680
+ coords_r: 764
+ coords_t: 680
+ coords_b: 596
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 10001
+ layer: 0
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.gmeter
+}
+
+ui::text : _nameless._.gmeter.range {
+ text: "<img src=/material/ui/adviser/g_force.mat>"
+ coords_l: 680
+ coords_r: 764
+ coords_t: 680
+ coords_b: 596
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 10010
+ layer: 2
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.gmeter
+}
+
+ui::text_common : _nameless._.gmeter.pointer {
+ value: "@@clr_txt@@"
+ look_template: txt.hud.bus_gmeter.pointer
+ text: ""
+ coords_l: 712
+ coords_r: 732
+ coords_t: 648
+ coords_b: 628
+ area_l: 1
+ area_r: 0
+ area_t: 0
+ area_b: 1
+ id: 10020
+ layer: 4
+ tab: -1
+ pointer: -1
+ my_parent: _nameless._.gmeter
+}
+
+
+}

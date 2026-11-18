@@ -1,0 +1,47 @@
+name: Rebuild Dashboard GPS Speed preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mods/dashboard-gps-speed/screenshots/*.png'
+      - '!mods/dashboard-gps-speed/screenshots/gps-preview.png'
+      - 'mods/dashboard-gps-speed/screenshots/README.md'
+      - 'mods/dashboard-gps-speed/build_preview.py'
+      - '.github/workflows/preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dashboard-gps-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: github.ref == 'refs/heads/main' && !github.event.deleted
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install preview dependencies
+        run: python -m pip install numpy pillow
+      - name: Build the preview
+        run: python mods/dashboard-gps-speed/build_preview.py
+      - name: Commit and push the updated preview
+        shell: bash
+        run: |
+          preview=mods/dashboard-gps-speed/screenshots/gps-preview.png
+          git add -- "$preview"
+          if git diff --cached --quiet -- "$preview"; then
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Update Dashboard GPS Speed preview' -- "$preview"
+          git push origin HEAD:refs/heads/main

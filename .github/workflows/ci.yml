@@ -1,0 +1,54 @@
+name: Build changed mods
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: ${{ !github.event.deleted }}
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Build affected mods
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          $mods = @(Get-ChildItem -LiteralPath mods -Directory | Where-Object {
+              Test-Path -LiteralPath (Join-Path $_.FullName 'mod.json') -PathType Leaf
+          })
+          if ($env:BASE_SHA -match '^[0-9a-f]{40}$' -and $env:BASE_SHA -notmatch '^0+$') {
+              git cat-file -e "$env:BASE_SHA" 2>$null
+              if ($LASTEXITCODE -eq 0) {
+                  $changes = @(git -c core.quotepath=false diff --no-renames --name-only "$env:BASE_SHA" HEAD)
+                  if ($LASTEXITCODE -ne 0) { throw 'Could not list the changed files.' }
+                  if (-not ($changes -match '^(scripts/|\.github/workflows/ci\.yml$)')) {
+                      $changedMods = @($changes | ForEach-Object {
+                          if ($_ -match '^mods/([^/]+)/') { $Matches[1] }
+                      })
+                      $mods = @($mods | Where-Object { $_.Name -in $changedMods })
+                  }
+              }
+          }
+
+          foreach ($mod in $mods) {
+              python scripts/build.py "$($mod.FullName)"
+              if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          exit 0
+      - uses: actions/upload-artifact@v7
+        with:
+          name: scs-packages
+          path: mods/*/build/*.scs
+          if-no-files-found: ignore
