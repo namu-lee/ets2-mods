@@ -153,8 +153,9 @@ jobs:
           MOD: ${{ needs.select.outputs.mod }}
         run: |
           function ConvertTo-VdfValue([string]$value) {
-              $escaped = $value.Replace('\', '\\').Replace('"', '\"').Replace("`t", '\t')
-              return $escaped -replace '\r\n?|\n', '\n'
+              # SteamCMD reads backslashes literally. Use a visible quote that cannot close the VDF value.
+              $quoted = $value.Replace('"', [string][char]0xFF02)
+              return $quoted -replace '\r\n?', "`n"
           }
 
           $archive = Join-Path $env:RUNNER_TEMP 'workshop-package.zip'

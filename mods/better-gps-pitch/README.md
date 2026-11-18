@@ -10,7 +10,7 @@ Both dashboard GPS captures show a parked Volvo FH 2024 at the same location in 
 
 ## Installation
 
-Copy `ets2-better-gps-pitch.scs` into `Documents/Euro Truck Simulator 2/mod`, enable **Better GPS Pitch** in Mod Manager, and select a 3D view on the dashboard GPS.
+Copy `ets2-better-gps-pitch.scs` into `Documents\Euro Truck Simulator 2\mod`, enable **Better GPS Pitch** in Mod Manager, and select a 3D view on the dashboard GPS.
 
 ## Camera pitch and compatibility
 
@@ -22,10 +22,10 @@ This mod replaces `def/map_data.sii` and the stock GPS layouts. Map overhauls an
 
 ## Development
 
-Install the [shared build dependencies](../../README.md#local-builds), then build `build/better-gps-pitch/ets2-better-gps-pitch.scs` from the repository root.
+Install the [shared build dependencies](../../README.md#local-builds), then build `build\better-gps-pitch\ets2-better-gps-pitch.scs` from the repository root.
 
 ```powershell
-python scripts/build.py mods/better-gps-pitch
+python .\scripts\build.py .\mods\better-gps-pitch
 ```
 
 Add a Workshop preview as `icon.jpg` in this mod directory before building its Workshop ZIP. See the [shared build and release guide](../../README.md) for packaging and tag instructions.

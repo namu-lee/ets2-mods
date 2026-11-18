@@ -3,7 +3,7 @@ SiiNunit
 mod_package : .better.gps.pitch
 {
     display_name: "Better GPS Pitch"
-    package_version: "1.0.0"
+    package_version: "1.0.2"
     category[]: "interior"
     compatible_versions[]: "1.62.*"
     description_file: "mod_description.txt"

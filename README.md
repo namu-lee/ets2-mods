@@ -14,10 +14,10 @@ Run these commands from the repository root with Python 3.12.
 
 ```powershell
 python -m pip install -r requirements.txt
-python scripts/build.py mods/MOD_NAME
+python .\scripts\build.py .\mods\MOD_NAME
 ```
 
-Each mod has a `src/` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put the Workshop image at `icon.jpg` beside `mod.json`. The `.scs` and Workshop ZIP go into `build/<mod-name>/` at the repository root.
+Each mod has a `src\` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put the Workshop image at `icon.jpg` beside `mod.json`. The `.scs` and Workshop ZIP go into `build\<mod-name>\` at the repository root.
 
 Edit the mod's `description.md` to update its in-game and Workshop descriptions. Both package builds use the Pandoc bundled with `pypandoc-binary` to generate the plain-text file specified by `description_file` in `manifest.sii`. In-game descriptions keep the link text. The Workshop upload converts the same Markdown to Steam BBCode with clickable links.
 
@@ -25,7 +25,7 @@ Edit the mod's `description.md` to update its in-game and Workshop descriptions.
 
 Pushes and pull requests to `main` build the affected mods. A change to the common build scripts rebuilds all mods.
 
-Update the mod's `package_version` in `src/manifest.sii`, push the release commit to `main`, then tag it using the mod directory name and version.
+Update the mod's `package_version` in `src\manifest.sii`, push the release commit to `main`, then tag it using the mod directory name and version.
 
 ```powershell
 git tag -a no-minimap/v0.0.2 -m "Adjust the Route Advisor layout"
@@ -36,7 +36,7 @@ GitHub Actions attaches that mod's `.scs` to a release titled after the tag. The
 
 ## Steam Workshop setup
 
-1. For the first upload, build the Workshop ZIP locally and use its extracted `workshop/` directory as **Mod data**. Select the mod's `icon.jpg` as the preview. [SCS Workshop upload guide](https://modding.scssoft.com/wiki/Tutorials/SCS_Workshop_Uploader/How_to_upload_new_mod%3F)
+1. For the first upload, build the Workshop ZIP locally and use its extracted `workshop\` directory as **Mod data**. Select the mod's `icon.jpg` as the preview. [SCS Workshop upload guide](https://modding.scssoft.com/wiki/Tutorials/SCS_Workshop_Uploader/How_to_upload_new_mod%3F)
 2. Add the resulting item ID as a string in the mod's `mod.json`. Use `null` until the item has been created.
 3. Create the `steam-workshop` environment. If it has deployment rules, allow the per-mod release tags. Store `STEAM_USERNAME` and `STEAM_CONFIG_VDF_B64` as environment secrets for the account that can update the items. [GitHub Actions environment secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-secrets-for-an-environment)
 4. To generate `STEAM_CONFIG_VDF_B64`, sign in to SteamCMD locally with the command below. Complete Steam Guard and enter `quit`. Verify cached login, then Base64-encode the resulting `config.vdf`. [Steamworks CI login guide](https://partner.steamgames.com/doc/sdk/uploading)
