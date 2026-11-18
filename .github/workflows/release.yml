@@ -165,7 +165,6 @@ jobs:
           if (-not (Test-Path -LiteralPath (Join-Path $content 'versions.sii') -PathType Leaf)) {
               throw 'The Workshop package is missing versions.sii.'
           }
-          $preview = (Resolve-Path -LiteralPath "mods/$env:MOD/icon.jpg" -ErrorAction Stop).ProviderPath
 
           . .\.github\scripts\release-notes.ps1
           $message = Get-ReleaseTagMessage
@@ -188,7 +187,6 @@ jobs:
           $workshopDescription = ConvertTo-VdfValue $description
           $changeNote = ConvertTo-VdfValue $message
           $vdfContentPath = ConvertTo-VdfValue $content
-          $vdfPreviewPath = ConvertTo-VdfValue $preview
           $vdf = Join-Path $env:RUNNER_TEMP 'workshop-update.vdf'
           @"
           "workshopitem"
@@ -196,7 +194,6 @@ jobs:
               "appid"           "227300"
               "publishedfileid" "$env:ITEM_ID"
               "contentfolder"   "$vdfContentPath"
-              "previewfile"     "$vdfPreviewPath"
               "description"     "$workshopDescription"
               "changenote"      "$changeNote"
           }

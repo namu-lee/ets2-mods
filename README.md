@@ -17,7 +17,7 @@ python -m pip install -r requirements.txt
 python .\scripts\build.py .\mods\MOD_NAME
 ```
 
-Each mod has a `src\` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put the Workshop image at `icon.jpg` beside `mod.json`. The `.scs` and Workshop ZIP go into `build\<mod-name>\` at the repository root.
+Each mod has a `src\` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put `icon.jpg` beside `mod.json` to generate the in-game icon for the Workshop package. The `.scs` and Workshop ZIP go into `build\<mod-name>\` at the repository root.
 
 Edit the mod's `description.md` to update its in-game and Workshop descriptions. Both package builds use the Pandoc bundled with `pypandoc-binary` to generate the plain-text file specified by `description_file` in `manifest.sii`. In-game descriptions keep the link text. The Workshop upload converts the same Markdown to Steam BBCode with clickable links.
 
@@ -32,7 +32,7 @@ git tag -a no-minimap/v0.0.2 -m "Adjust the Route Advisor layout"
 git push origin refs/tags/no-minimap/v0.0.2
 ```
 
-GitHub Actions attaches that mod's `.scs` to a release titled after the tag. The tag message becomes the release body and the Steam Workshop change note. A mod with a `workshop_item_id` also updates that item using its current visibility. The upload uses the mod's `icon.jpg` as the Workshop preview image. Run **Release a mod** manually with a mod directory name to build its Workshop ZIP artifact.
+GitHub Actions attaches that mod's `.scs` to a release titled after the tag. The tag message becomes the release body and the Steam Workshop change note. A mod with a `workshop_item_id` also updates that item using its current visibility. Run **Release a mod** manually with a mod directory name to build its Workshop ZIP artifact.
 
 ## Steam Workshop setup
 

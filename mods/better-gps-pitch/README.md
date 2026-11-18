@@ -28,6 +28,6 @@ Install the [shared build dependencies](../../README.md#local-builds), then buil
 python .\scripts\build.py .\mods\better-gps-pitch
 ```
 
-Add a Workshop preview as `icon.jpg` in this mod directory before building its Workshop ZIP. See the [shared build and release guide](../../README.md) for packaging and tag instructions.
+Add the in-game icon source as `icon.jpg` in this mod directory before building its Workshop ZIP. See the [shared build and release guide](../../README.md) for packaging and tag instructions.
 
 Original contributions are licensed under the [GNU General Public License v3.0](LICENSE).
