@@ -1,0 +1,6 @@
+{
+  "package_filename": "ets2-gps-speed-view.scs",
+  "workshop_item_id": null,
+  "source_mod": "gps-speed",
+  "features": ["view"]
+}

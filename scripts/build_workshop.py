@@ -1,4 +1,5 @@
 import argparse
+import json
 from io import BytesIO
 from pathlib import Path
 from shutil import copytree
@@ -6,7 +7,7 @@ from tempfile import TemporaryDirectory
 
 from PIL import Image, ImageOps
 
-from build import BUILD_DIRECTORY, SOURCE_DIRECTORY, description_filename, render_description, write_archive
+from build import BUILD_DIRECTORY, SOURCE_DIRECTORY, description_filename, render_description, stage_source, write_archive
 
 
 ICON = "mod_icon.jpg"
@@ -48,16 +49,16 @@ def build_mod_icon(icon_path):
 
 
 def build_workshop(mod_directory, icon_path, output):
-    source = mod_directory / SOURCE_DIRECTORY
-    if output.resolve().is_relative_to(source.resolve()):
+    if output.resolve().is_relative_to((mod_directory / SOURCE_DIRECTORY).resolve()):
         raise ValueError("Choose an output file outside the source directory.")
 
-    manifest = workshop_manifest(source)
-    filename = description_filename(source / "manifest.sii")
+    config = json.loads((mod_directory / "mod.json").read_text(encoding="utf-8"))
     description = render_description(mod_directory / "description.md")
     icon = build_mod_icon(icon_path)
 
-    with TemporaryDirectory() as workspace:
+    with stage_source(mod_directory, config) as source, TemporaryDirectory() as workspace:
+        manifest = workshop_manifest(source)
+        filename = description_filename(source / "manifest.sii")
         staging = Path(workspace)
         workshop = staging / "workshop"
         content = workshop / "universal"

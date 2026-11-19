@@ -2,7 +2,11 @@ import argparse
 import json
 import os
 import re
+import subprocess
+import sys
+from contextlib import contextmanager
 from pathlib import Path, PureWindowsPath
+from shutil import copytree
 from tempfile import TemporaryDirectory
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
@@ -12,6 +16,54 @@ import pypandoc
 SOURCE_DIRECTORY = Path("src")
 BUILD_DIRECTORY = Path(__file__).resolve().parents[1] / "build"
 DESCRIPTION_FIELD = re.compile(r'^[ \t]*description_file[ \t]*:[ \t]*"([^"\r\n]+)"[ \t]*(?:#.*)?$', re.MULTILINE)
+
+
+def run_apply_features(mod_directory, staging, *, base=None):
+    script_path = (base or mod_directory) / "shared" / "apply_features.py"
+    if not script_path.is_file():
+        raise FileNotFoundError(script_path)
+    # Release automation reads the package path from the build command's stdout.
+    subprocess.run(
+        [sys.executable, str(script_path), str(staging)],
+        cwd=mod_directory,
+        stdout=sys.stderr,
+        check=True,
+    )
+
+
+@contextmanager
+def stage_source(mod_directory, config):
+    mod_directory = mod_directory.resolve()
+    source = mod_directory / SOURCE_DIRECTORY
+    if not (source / "manifest.sii").is_file():
+        raise FileNotFoundError(source / "manifest.sii")
+    base_mod = config.get("source_mod")
+    features = config.get("features", [])
+    if not isinstance(features, list):
+        raise ValueError(f"Set features to a list in {mod_directory / 'mod.json'}.")
+    if base_mod is None and not features:
+        yield source
+        return
+
+    with TemporaryDirectory() as workspace:
+        staging = Path(workspace) / SOURCE_DIRECTORY
+        base = None
+        if base_mod is not None:
+            if (
+                not isinstance(base_mod, str)
+                or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", base_mod)
+                or base_mod == mod_directory.name
+            ):
+                raise ValueError(f"Set source_mod to another mod directory in {mod_directory / 'mod.json'}.")
+            base = (mod_directory.parent / base_mod).resolve()
+            base_config = json.loads((base / "mod.json").read_text(encoding="utf-8"))
+            if base_config.get("source_mod") is not None:
+                raise ValueError(f"source_mod {base_mod} must provide its own source directory.")
+            copytree(base / SOURCE_DIRECTORY, staging)
+        copytree(source, staging, dirs_exist_ok=True)
+        if features:
+            run_apply_features(mod_directory, staging, base=base)
+        yield staging
 
 
 def description_filename(manifest):
@@ -79,10 +131,6 @@ if __name__ == "__main__":
     parser.add_argument("mod_directory", type=Path)
     args = parser.parse_args()
 
-    source = args.mod_directory / SOURCE_DIRECTORY
-    manifest = source / "manifest.sii"
-    if not manifest.is_file():
-        raise FileNotFoundError(manifest)
     config = json.loads((args.mod_directory / "mod.json").read_text(encoding="utf-8"))
     filename = config.get("package_filename") if isinstance(config, dict) else None
     if not isinstance(filename, str):
@@ -93,5 +141,7 @@ if __name__ == "__main__":
         parser.error(str(error))
     output = BUILD_DIRECTORY / args.mod_directory.resolve().name / filename
     description = render_description(args.mod_directory / "description.md")
-    write_archive(source, output, generated_files={description_filename(manifest): description.encode("utf-8")})
+    with stage_source(args.mod_directory, config) as source:
+        manifest = source / "manifest.sii"
+        write_archive(source, output, generated_files={description_filename(manifest): description.encode("utf-8")})
     print(output.resolve())

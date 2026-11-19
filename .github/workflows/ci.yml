@@ -39,7 +39,10 @@ jobs:
                       $changedMods = @($changes | ForEach-Object {
                           if ($_ -match '^mods/([^/]+)/') { $Matches[1] }
                       })
-                      $mods = @($mods | Where-Object { $_.Name -in $changedMods })
+                      $mods = @($mods | Where-Object {
+                          $config = Get-Content -Raw -LiteralPath (Join-Path $_.FullName 'mod.json') | ConvertFrom-Json
+                          $_.Name -in $changedMods -or $config.source_mod -in $changedMods
+                      })
                   }
               }
           }

@@ -5,6 +5,7 @@ Mods for Euro Truck Simulator 2.
 Original contributions are licensed under the GPLv3. See [LICENSE](LICENSE).
 
 - [Dashboard GPS Speed and Limit](mods/gps-speed/) · [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859)
+- [Dashboard GPS Speed: Enhanced View](mods/gps-speed-view/)
 - [HUD Side Swap](mods/hud-side-swap/) · [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300)
 - [No Minimap](mods/no-minimap/) · [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514)
 
@@ -18,6 +19,10 @@ python .\scripts\build.py .\mods\MOD_NAME
 ```
 
 Each mod has a `src\` directory with `manifest.sii` and a `mod.json` with its `.scs` filename and optional Workshop item ID. Put `icon.jpg` beside `mod.json` to generate the in-game icon for the Workshop package. The `.scs` and Workshop ZIP go into `build\<mod-name>\` at the repository root.
+
+A mod can declare `source_mod` in `mod.json` to reuse another mod's source. The builder copies the source mod's `src` into a temporary directory and overlays the current mod's `src` files.
+
+When the current mod declares a nonempty `features` list, the local and Workshop builders run `shared/apply_features.py` from the source mod, or from the current mod if it has no `source_mod`. The script runs with the current mod's directory as its working directory and gets the absolute path to the staged `src` as its sole argument. It reads the current mod's `features` and applies them in order.
 
 Edit the mod's `description.md` to update its in-game and Workshop descriptions. Both package builds use the Pandoc bundled with `pypandoc-binary` to generate the plain-text file specified by `description_file` in `manifest.sii`. In-game descriptions keep the link text. The Workshop upload converts the same Markdown to Steam BBCode with clickable links.
 
