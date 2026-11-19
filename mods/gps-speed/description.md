@@ -2,7 +2,7 @@
 
 [Source code](https://github.com/namu-lee/ets2-mods)
 
-[Screenshots by vehicle](https://github.com/namu-lee/ets2-mods/blob/main/mods/dashboard-gps-speed/screenshots/README.md)
+[Screenshots by vehicle](https://github.com/namu-lee/ets2-mods/blob/main/mods/gps-speed/screenshots/README.md)
 
 ## Description
 

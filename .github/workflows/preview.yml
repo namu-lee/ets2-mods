@@ -4,9 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'mods/dashboard-gps-speed/screenshots/*.png'
-      - 'mods/dashboard-gps-speed/screenshots/README.md'
-      - 'mods/dashboard-gps-speed/build_preview.py'
+      - 'mods/gps-speed/screenshots/*.png'
+      - 'mods/gps-speed/screenshots/README.md'
+      - 'mods/gps-speed/build_preview.py'
       - 'requirements.txt'
       - '.github/workflows/preview.yml'
   workflow_dispatch:
@@ -32,11 +32,11 @@ jobs:
       - name: Install preview dependencies
         run: python -m pip install -r requirements.txt
       - name: Build the preview
-        run: python mods/dashboard-gps-speed/build_preview.py
+        run: python mods/gps-speed/build_preview.py
       - name: Commit and push the updated preview
         shell: bash
         run: |
-          preview=mods/dashboard-gps-speed/preview.jpg
+          preview=mods/gps-speed/preview.jpg
           git add -- "$preview"
           if git diff --cached --quiet -- "$preview"; then
             exit 0

@@ -10,7 +10,7 @@ The script builds [preview.jpg](preview.jpg) at 1920×1080 and keeps it under 1 
 
 ```powershell
 python -m pip install -r requirements.txt
-python .\mods\dashboard-gps-speed\build_preview.py
+python .\mods\gps-speed\build_preview.py
 ```
 
 ### Indicator size and position
