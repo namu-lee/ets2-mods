@@ -5,13 +5,11 @@
 [Screenshots by vehicle](https://github.com/namu-lee/ets2-mods/blob/main/mods/gps-speed/screenshots/README.md)
 
 > ***Note:** This mod and the edition below replace the same GPS layouts. Enable only one at a time.*
->
 > - *[Dashboard GPS Speed: Enhanced View](https://steamcommunity.com/sharedfiles/filedetails/?id=3842901227)*
 
 ## Description
 
 Adds a speed limit sign on the top left corner to your dashboard GPS, with your current speed displayed directly below it.
-
 - Supports all SCS trucks and Coaches equipped with a factory GPS.
 - Size and placement are adjusted to fit each GPS screen and avoid overlapping its controls.
 

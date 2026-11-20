@@ -5,19 +5,16 @@
 [Screenshots by vehicle](https://github.com/namu-lee/ets2-mods/blob/main/mods/gps-speed-view/screenshots/README.md)
 
 > ***Note:** This mod and the edition below replace the same GPS layouts. Use only one at a time.*
->
 > - *[Dashboard GPS Speed](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859)*
 
 ## Description
 
 Adds a speed limit and current speed indicators to dashboard GPS, with adjusted pitch and position.
-
 - Supports all SCS trucks and Coaches equipped with a factory GPS.
 - Sets the dashboard GPS 3D pitch to 40°.
 - Moves the vehicle marker about 30% below the center of the dashboard gps.
 
 > ***Side effects***
->
 > - *The **HUD minimap's 3D pitch** changes from 40° to 61.54° as a side effect.*
 > - *The vehicle marker in the **dashboard GPS's 3D view** moves about 30% below the center.*
 
