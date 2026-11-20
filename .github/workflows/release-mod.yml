@@ -1,0 +1,166 @@
+name: Build and publish a selected mod
+
+on:
+  workflow_call:
+    inputs:
+      mod:
+        type: string
+        required: true
+      workshop_item_id:
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  github-release:
+    if: github.event_name == 'push'
+    runs-on: windows-2025
+    permissions:
+      contents: write
+    concurrency: github-release-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install build dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Build the mod
+        id: package
+        env:
+          MOD: ${{ inputs.mod }}
+        run: |
+          $package = python scripts/build.py "mods/$env:MOD"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "path=$package" >> $env:GITHUB_OUTPUT
+      - uses: actions/upload-artifact@v7
+        with:
+          name: scs-package
+          path: ${{ steps.package.outputs.path }}
+          if-no-files-found: error
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PACKAGE: ${{ steps.package.outputs.path }}
+        run: |
+          . .\.github\scripts\release-notes.ps1
+          $message = Get-ReleaseTagMessage
+          $releaseNotes = @('--generate-notes')
+          if (-not [string]::IsNullOrWhiteSpace($message)) {
+              $notesFile = Join-Path $env:RUNNER_TEMP 'release-notes.md'
+              Set-Content -LiteralPath $notesFile -Value $message -Encoding utf8NoBOM -NoNewline
+              $releaseNotes = @('--notes-file', $notesFile)
+          }
+          gh release create "$env:GITHUB_REF_NAME" "$env:PACKAGE" --verify-tag --title "$env:GITHUB_REF_NAME" @releaseNotes
+
+  workshop-package:
+    if: github.event_name == 'workflow_dispatch' || inputs.workshop_item_id != ''
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install Workshop build dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Build the Workshop ZIP
+        env:
+          MOD: ${{ inputs.mod }}
+        run: python scripts/build_workshop.py "mods/$env:MOD"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: workshop-package.zip
+          path: build/${{ inputs.mod }}/workshop-package.zip
+          archive: false
+          if-no-files-found: error
+
+  workshop-upload:
+    if: github.event_name == 'push' && inputs.workshop_item_id != ''
+    needs: workshop-package
+    runs-on: windows-2025
+    environment: steam-workshop
+    timeout-minutes: 5
+    concurrency: steam-workshop-${{ inputs.workshop_item_id }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install description converter
+        run: python -m pip install -r requirements.txt
+      - uses: actions/download-artifact@v8
+        with:
+          name: workshop-package.zip
+          path: ${{ runner.temp }}
+          skip-decompress: true
+      - name: Prepare the Workshop update
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ITEM_ID: ${{ inputs.workshop_item_id }}
+          MOD: ${{ inputs.mod }}
+        run: |
+          function ConvertTo-VdfValue([string]$value) {
+              # SteamCMD reads backslashes literally. Use a visible quote that cannot close the VDF value.
+              $quoted = $value.Replace('"', [string][char]0xFF02)
+              return $quoted -replace '\r\n?', "`n"
+          }
+
+          $archive = Join-Path $env:RUNNER_TEMP 'workshop-package.zip'
+          $unpacked = Join-Path $env:RUNNER_TEMP 'workshop-package'
+          Expand-Archive -LiteralPath $archive -DestinationPath $unpacked
+          $content = (Resolve-Path -LiteralPath (Join-Path $unpacked 'workshop')).ProviderPath
+          if (-not (Test-Path -LiteralPath (Join-Path $content 'versions.sii') -PathType Leaf)) {
+              throw 'The Workshop package is missing versions.sii.'
+          }
+
+          . .\.github\scripts\release-notes.ps1
+          $message = Get-ReleaseTagMessage
+          if ([string]::IsNullOrWhiteSpace($message)) {
+              $message = "Release $env:GITHUB_REF_NAME"
+          }
+          $descriptionFile = Join-Path $env:RUNNER_TEMP 'workshop-description.txt'
+          python -c @'
+          from pathlib import Path
+          from sys import argv
+
+          from scripts.build import render_description
+
+          description = render_description(Path(argv[1]), to="bbcode_steam")
+          Path(argv[2]).write_text(description, encoding="utf-8", newline="\n")
+          '@ "mods/$env:MOD/description.md" "$descriptionFile"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $description = (Get-Content -Raw -Encoding utf8 -LiteralPath $descriptionFile).TrimEnd("`r`n".ToCharArray())
+
+          $workshopDescription = ConvertTo-VdfValue $description
+          $changeNote = ConvertTo-VdfValue $message
+          $vdfContentPath = ConvertTo-VdfValue $content
+          $vdf = Join-Path $env:RUNNER_TEMP 'workshop-update.vdf'
+          @"
+          "workshopitem"
+          {
+              "appid"           "227300"
+              "publishedfileid" "$env:ITEM_ID"
+              "contentfolder"   "$vdfContentPath"
+              "description"     "$workshopDescription"
+              "changenote"      "$changeNote"
+          }
+          "@ | Set-Content -LiteralPath $vdf -Encoding utf8NoBOM
+      - name: Install SteamCMD
+        run: |
+          . .\.github\scripts\steamcmd.ps1
+          Install-SteamCmd
+      - name: Update the Workshop item
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_CONFIG_VDF_B64: ${{ secrets.STEAM_CONFIG_VDF_B64 }}
+        run: |
+          . .\.github\scripts\steamcmd.ps1
+          Publish-SteamWorkshopItem -WorkshopVdf (Join-Path $env:RUNNER_TEMP 'workshop-update.vdf')
