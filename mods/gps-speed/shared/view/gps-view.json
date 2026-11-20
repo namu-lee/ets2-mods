@@ -1,3 +1,50 @@
 {
-  "marker_height": 0.20
+  "marker_height": 0.20,
+  "visible_map_ranges": {
+    "daf_xf_105.sii": [0.3058, 0.8561],
+    "daf_xf_euro6.sii": [0.2315, 0.8282],
+    "iveco_stralis.sii": [0.3142, 0.7594],
+    "iveco_stralis_hiway.sii": [0.2415, 0.8285],
+    "man_tgx.sii": [0.3075, 0.7668],
+    "man_tgx_euro6.sii": [0.3373, 0.9214],
+    "man_tgx_euro6_early.sii": [0.3408, 0.9210],
+    "mercedes_actros_2014.sii": [0.2110, 0.8597],
+    "renault_t_legacy.sii": [0.2071, 0.8860],
+    "scania_2016_legacy.sii": [0.2647, 0.8781],
+    "scania_r_2009_streamline.sii": [0.2939, 0.7740],
+    "scania_s_2024e.sii": [0.2647, 0.8781],
+    "volvo_fh16_2009.sii": [0.2582, 0.8149],
+    "volvo_fh16_2012.sii": [0.2274, 0.7727]
+  },
+  "layout_variants": [
+    {
+      "layout": "renault_t_legacy.sii",
+      "suffix": "2013",
+      "visible_range": [0.3079, 0.8722],
+      "interiors": [
+        "def/vehicle/truck/renault.t/interior/exclusive_high.sii",
+        "def/vehicle/truck/renault.t/interior/exclusive_low.sii",
+        "def/vehicle/truck/renault.t/interior/standard_high.sii",
+        "def/vehicle/truck/renault.t/interior/standard_low.sii"
+      ]
+    },
+    {
+      "layout": "renault_t_legacy.sii",
+      "suffix": "2019",
+      "visible_range": [0.2242, 0.8722],
+      "interiors": [
+        "def/vehicle/truck/renault.t/interior/*_19_high.sii",
+        "def/vehicle/truck/renault.t/interior/*_19_low.sii"
+      ]
+    },
+    {
+      "layout": "renault_t_legacy.sii",
+      "suffix": "evolution",
+      "visible_range": [0.2528, 0.8606],
+      "interiors": [
+        "def/vehicle/truck/renault.t/interior/exclusive_2[12]_high.sii",
+        "def/vehicle/truck/renault.t/interior/exclusive_2[12]_low.sii"
+      ]
+    }
+  ]
 }
