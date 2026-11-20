@@ -2,6 +2,5 @@
   "package_filename": "ets2-gps-speed-view.scs",
   "workshop_item_id": 3842901227,
   "source_mod": "gps-speed",
-  "release_with_source": true,
   "features": ["view"]
 }

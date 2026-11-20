@@ -16,13 +16,6 @@ import pypandoc
 SOURCE_DIRECTORY = Path("src")
 BUILD_DIRECTORY = Path(__file__).resolve().parents[1] / "build"
 DESCRIPTION_FIELD = re.compile(r'^[ \t]*description_file[ \t]*:[ \t]*"([^"\r\n]+)"[ \t]*(?:#.*)?$', re.MULTILINE)
-VERSION_FIELD = re.compile(r'(^[ \t]*package_version[ \t]*:[ \t]*")([^"\r\n]+)("[ \t]*(?:#.*)?$)', re.MULTILINE)
-
-
-def package_version(value):
-    if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", value):
-        raise argparse.ArgumentTypeError("Expected a package version in X.Y.Z format.")
-    return value
 
 
 def run_apply_features(mod_directory, staging, *, base=None):
@@ -39,7 +32,7 @@ def run_apply_features(mod_directory, staging, *, base=None):
 
 
 @contextmanager
-def stage_source(mod_directory, config, *, version=None):
+def stage_source(mod_directory, config):
     mod_directory = mod_directory.resolve()
     source = mod_directory / SOURCE_DIRECTORY
     if not (source / "manifest.sii").is_file():
@@ -48,7 +41,7 @@ def stage_source(mod_directory, config, *, version=None):
     features = config.get("features", [])
     if not isinstance(features, list):
         raise ValueError(f"Set features to a list in {mod_directory / 'mod.json'}.")
-    if base_mod is None and not features and version is None:
+    if base_mod is None and not features:
         yield source
         return
 
@@ -70,13 +63,6 @@ def stage_source(mod_directory, config, *, version=None):
         copytree(source, staging, dirs_exist_ok=True)
         if features:
             run_apply_features(mod_directory, staging, base=base)
-        if version is not None:
-            manifest = staging / "manifest.sii"
-            original = manifest.read_text(encoding="utf-8-sig")
-            updated, count = VERSION_FIELD.subn(lambda match: match[1] + version + match[3], original)
-            if count != 1:
-                raise ValueError(f"{manifest} must declare exactly one package_version.")
-            manifest.write_text(updated, encoding="utf-8", newline="\n")
         yield staging
 
 
@@ -143,7 +129,6 @@ def write_archive(source, output, *, generated_files):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build an ETS2 mod archive.")
     parser.add_argument("mod_directory", type=Path)
-    parser.add_argument("--version", type=package_version, help="Package version to write into the built manifest")
     args = parser.parse_args()
 
     config = json.loads((args.mod_directory / "mod.json").read_text(encoding="utf-8"))
@@ -156,7 +141,7 @@ if __name__ == "__main__":
         parser.error(str(error))
     output = BUILD_DIRECTORY / args.mod_directory.resolve().name / filename
     description = render_description(args.mod_directory / "description.md")
-    with stage_source(args.mod_directory, config, version=args.version) as source:
+    with stage_source(args.mod_directory, config) as source:
         manifest = source / "manifest.sii"
         write_archive(source, output, generated_files={description_filename(manifest): description.encode("utf-8")})
     print(output.resolve())
