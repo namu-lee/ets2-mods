@@ -7,6 +7,7 @@ on:
       - 'mods/gps-speed/screenshots/*.png'
       - 'mods/gps-speed/screenshots/README.md'
       - 'mods/gps-speed/build_preview.py'
+      - 'mods/gps-speed-view/screenshots/README.md'
       - 'requirements.txt'
       - '.github/workflows/preview.yml'
   workflow_dispatch:
