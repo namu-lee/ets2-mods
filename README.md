@@ -6,10 +6,10 @@ Original contributions are licensed under the GPLv3. See [LICENSE](LICENSE).
 
 | Mod | Steam Workshop |
 | --- | --- |
-| [Dashboard GPS Speed](mods/gps-speed/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859) |
-| [Dashboard GPS Speed: Enhanced View](mods/gps-speed-view/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3842901227) |
-| [HUD Side Swap](mods/hud-side-swap/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300) |
-| [No Minimap](mods/no-minimap/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514) |
+| [Dashboard GPS Speed](mods/gps-speed/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859) |
+| [Dashboard GPS Speed: Enhanced View](mods/gps-speed-view/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3842901227) |
+| [HUD Side Swap](mods/hud-side-swap/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300) |
+| [No Minimap](mods/no-minimap/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514) |
 
 ## Local builds
 
