@@ -86,7 +86,10 @@ jobs:
           if-no-files-found: error
 
   workshop-upload:
-    if: github.event_name == 'push' && inputs.workshop_item_id != ''
+    if: >-
+      inputs.workshop_item_id != '' &&
+      (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' &&
+        github.ref == 'refs/tags/gps-speed-view/v1.0.1-workshop-retry-3f37b38' && inputs.mod == 'gps-speed-view'))
     needs: workshop-package
     runs-on: windows-2025
     environment: steam-workshop
