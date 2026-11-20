@@ -3,7 +3,7 @@ SiiNunit
 mod_package : .gpsspeedview
 {
     display_name: "Dashboard GPS Speed: Enhanced View"
-    package_version: "0.1.0"
+    package_version: "0.2.0"
     category[]: "interior"
     description_file: "mod_description.txt"
 }
