@@ -4,10 +4,12 @@ Mods for Euro Truck Simulator 2.
 
 Original contributions are licensed under the GPLv3. See [LICENSE](LICENSE).
 
-- [Dashboard GPS Speed](mods/gps-speed/) · [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859)
-- [Dashboard GPS Speed: Enhanced View](mods/gps-speed-view/)
-- [HUD Side Swap](mods/hud-side-swap/) · [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300)
-- [No Minimap](mods/no-minimap/) · [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514)
+| Mod | Steam Workshop |
+| --- | --- |
+| [Dashboard GPS Speed](mods/gps-speed/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859) |
+| [Dashboard GPS Speed: Enhanced View](mods/gps-speed-view/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3842901227) |
+| [HUD Side Swap](mods/hud-side-swap/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300) |
+| [No Minimap](mods/no-minimap/) | [View item](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514) |
 
 ## Local builds
 
