@@ -7,7 +7,10 @@ from tempfile import TemporaryDirectory
 
 from PIL import Image, ImageOps
 
-from build import BUILD_DIRECTORY, SOURCE_DIRECTORY, description_filename, render_description, stage_source, write_archive
+from build import (
+    BUILD_DIRECTORY, SOURCE_DIRECTORY, description_filename, package_version, render_description, stage_source,
+    write_archive,
+)
 
 
 ICON = "mod_icon.jpg"
@@ -48,7 +51,7 @@ def build_mod_icon(icon_path):
         return data.getvalue()
 
 
-def build_workshop(mod_directory, icon_path, output):
+def build_workshop(mod_directory, icon_path, output, *, version=None):
     if output.resolve().is_relative_to((mod_directory / SOURCE_DIRECTORY).resolve()):
         raise ValueError("Choose an output file outside the source directory.")
 
@@ -56,7 +59,7 @@ def build_workshop(mod_directory, icon_path, output):
     description = render_description(mod_directory / "description.md")
     icon = build_mod_icon(icon_path)
 
-    with stage_source(mod_directory, config) as source, TemporaryDirectory() as workspace:
+    with stage_source(mod_directory, config, version=version) as source, TemporaryDirectory() as workspace:
         manifest = workshop_manifest(source)
         filename = description_filename(source / "manifest.sii")
         staging = Path(workspace)
@@ -73,11 +76,12 @@ def build_workshop(mod_directory, icon_path, output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build an ETS2 Steam Workshop upload package.")
     parser.add_argument("mod_directory", type=Path)
+    parser.add_argument("--version", type=package_version, help="Package version to write into the built manifest")
     args = parser.parse_args()
 
     icon = args.mod_directory / "icon.jpg"
     if not icon.is_file():
         parser.error(f"Add the Workshop preview image at {icon}.")
     output = BUILD_DIRECTORY / args.mod_directory.resolve().name / "workshop-package.zip"
-    build_workshop(args.mod_directory, icon, output)
+    build_workshop(args.mod_directory, icon, output, version=args.version)
     print(output.resolve())

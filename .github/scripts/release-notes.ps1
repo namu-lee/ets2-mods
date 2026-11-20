@@ -1,6 +1,6 @@
-function Get-ReleaseTagMessage {
+function Get-ReleaseTagMessage([string]$ReleaseTag = $env:GITHUB_REF_NAME) {
     $gitApi = "$env:GITHUB_API_URL/repos/$env:GITHUB_REPOSITORY/git"
-    $tagName = [Uri]::EscapeDataString($env:GITHUB_REF_NAME)
+    $tagName = [Uri]::EscapeDataString($ReleaseTag)
     $request = @{
         Headers = @{
             Accept = 'application/vnd.github+json'
@@ -17,7 +17,7 @@ function Get-ReleaseTagMessage {
         $target = $tag.object
     }
     if ($target.sha -ne $env:GITHUB_SHA) {
-        throw "Tag '$env:GITHUB_REF_NAME' no longer points to the workflow commit."
+        throw "Tag '$ReleaseTag' no longer points to the workflow commit."
     }
     if ($null -eq $annotation) {
         return ''

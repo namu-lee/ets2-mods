@@ -1,4 +1,4 @@
-name: Rebuild Dashboard GPS Speed preview
+name: Rebuild Dashboard GPS Workshop previews
 
 on:
   push:
@@ -7,7 +7,9 @@ on:
       - 'mods/gps-speed/screenshots/*.png'
       - 'mods/gps-speed/screenshots/README.md'
       - 'mods/gps-speed/build_preview.py'
+      - 'mods/gps-speed-view/screenshots/*.png'
       - 'mods/gps-speed-view/screenshots/README.md'
+      - 'mods/gps-speed-view/build_preview.py'
       - 'requirements.txt'
       - '.github/workflows/preview.yml'
   workflow_dispatch:
@@ -32,17 +34,19 @@ jobs:
           python-version: '3.12'
       - name: Install preview dependencies
         run: python -m pip install -r requirements.txt
-      - name: Build the preview
+      - name: Build the GPS Speed preview
         run: python mods/gps-speed/build_preview.py
-      - name: Commit and push the updated preview
+      - name: Build the GPS Speed View preview
+        run: python mods/gps-speed-view/build_preview.py
+      - name: Commit and push the updated previews
         shell: bash
         run: |
-          preview=mods/gps-speed/preview.jpg
-          git add -- "$preview"
-          if git diff --cached --quiet -- "$preview"; then
+          previews=(mods/gps-speed/preview.jpg mods/gps-speed-view/preview.jpg)
+          git add -- "${previews[@]}"
+          if git diff --cached --quiet -- "${previews[@]}"; then
             exit 0
           fi
           git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-              commit -m 'Update Dashboard GPS Speed preview' -- "$preview"
+              commit -m 'Update Dashboard GPS Workshop previews' -- "${previews[@]}"
           git push origin HEAD:refs/heads/main

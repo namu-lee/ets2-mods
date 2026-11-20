@@ -39,6 +39,10 @@ git push origin refs/tags/no-minimap/v0.0.2
 
 GitHub Actions attaches that mod's `.scs` to a release titled after the tag. The tag message becomes the release body and the Steam Workshop change note. A mod with a `workshop_item_id` also updates that item using its current visibility. Run **Release a mod** manually with a mod directory name to build its Workshop ZIP artifact.
 
+A variant can set `release_with_source` to `true` in `mod.json` to release alongside its `source_mod`. On a source release tag, Actions builds each opted-in variant from that commit and compares its packaged `def/`, `ui/`, and `material/` files with its last published `.scs`. A change increments the same major, minor, or patch component as the source tag. The variant's manifest provides the starting version before its first tag. For example, `gps-speed-view` follows `gps-speed` releases.
+
+Actions pushes each variant tag on the same commit and applies its version to the manifests in both release packages. A variant's GitHub Release is published after its configured Workshop upload succeeds. A retry for the same source tag reuses the reserved variant version. To build a package locally with a specific release version, pass `--version X.Y.Z` to either build script.
+
 ## Steam Workshop setup
 
 1. For the first upload, build the Workshop ZIP locally and use its extracted `workshop\` directory as **Mod data**. Select the mod's `icon.jpg` as the preview. [SCS Workshop upload guide](https://modding.scssoft.com/wiki/Tutorials/SCS_Workshop_Uploader/How_to_upload_new_mod%3F)
