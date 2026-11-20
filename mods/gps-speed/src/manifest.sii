@@ -2,7 +2,7 @@ SiiNunit
 {
 mod_package : .dashgpsspd
 {
-    display_name: "Dashboard GPS Speed and Limit"
+    display_name: "Dashboard GPS Speed"
     package_version: "1.2.0"
     category[]: "interior"
     description_file: "mod_description.txt"

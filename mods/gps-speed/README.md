@@ -1,4 +1,4 @@
-# Dashboard GPS Speed and Limit
+# Dashboard GPS Speed
 
 Adds a speed limit sign and current speed to the dashboard GPS in all SCS trucks and coaches.
 

@@ -1,4 +1,4 @@
-# Dashboard GPS Speed and Limit
+# Dashboard GPS Speed
 
 [Source code](https://github.com/namu-lee/ets2-mods)
 
