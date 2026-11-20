@@ -26,9 +26,7 @@
 | Scania R 2016 | Legacy GPS | [Original](scania-r-2016-legacy.png) |
 | Scania R 2016 | Smart Dash 10.1″ | [Original](scania-r-2016-smartdash-10.png) |
 | Scania R 2016 | Smart Dash 12.9″ | [Original](scania-r-2016.png) |
-| Scania S 2016 | Smart Dash 12.9″ | [Original](scania-s-2016.png) |
 | Scania S Electric | — | [Original](scania-s-2024e.png) |
-| Scania Streamline | — | [Original](scania-streamline.png) |
 | Scania Touring | — | [Original](scania-touring-23.png) |
 | Volvo 9700 | — | [Original](volvo-9700-23.png) |
 | Volvo 9700 | mph | [Original](volvo-9700-23-mph.png) |

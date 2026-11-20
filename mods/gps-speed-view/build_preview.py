@@ -50,9 +50,7 @@ GPS_CROPS = {
     "scania-r-2016-legacy.png": (1555, 500, 2025, 755),
     "scania-r-2016-smartdash-10.png": (1548, 493, 2043, 826),
     "scania-r-2016.png": (1550, 476, 2240, 868),
-    "scania-s-2016.png": (1550, 476, 2240, 868),
     "scania-s-2024e.png": (1565, 520, 2010, 742),
-    "scania-streamline.png": (1625, 627, 2030, 856),
     "scania-touring-23.png": (1510, 635, 1870, 858),
     "volvo-9700-23.png": (1431, 611, 1712, 790),
     "volvo-9700-23-mph.png": (1431, 611, 1712, 790),
@@ -61,14 +59,11 @@ GPS_CROPS = {
     "volvo-fh-2021.png": (1405, 471, 1890, 811),
 }
 
-# This preset has an empty GPS mount in the captured interior.
-CAPTURES_WITHOUT_GPS = {"renault-t-legacy.png"}
-
 
 def sample_rows():
     rows = SAMPLE_ROW.findall((SCREENSHOTS / "README.md").read_text(encoding="utf-8-sig"))
     filenames = {filename for _, _, filename in rows}
-    originals = {path.name for path in SCREENSHOTS.glob("*.png")} - CAPTURES_WITHOUT_GPS
+    originals = {path.name for path in SCREENSHOTS.glob("*.png")}
     if not rows or len(filenames) != len(rows):
         raise ValueError("The sample table must list each original screenshot once.")
     if filenames != originals:
