@@ -2,11 +2,11 @@
 
 [Source code](https://github.com/namu-lee/ets2-mods)
 
-[Screenshots by vehicle](https://github.com/namu-lee/ets2-mods/tree/main/mods/gps-speed-view/screenshots)
+[Screenshots by vehicle](https://github.com/namu-lee/ets2-mods/blob/main/mods/gps-speed-view/screenshots/README.md)
 
 > ***Note:** This mod and the edition below replace the same GPS layouts. Use only one at a time.*
 >
-> - *[Dashboard GPS Speed and Limit](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859)*
+> - *[Dashboard GPS Speed](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859)*
 
 ## Description
 
