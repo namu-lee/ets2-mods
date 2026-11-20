@@ -14,8 +14,12 @@ Adds a speed limit and current speed indicators to dashboard GPS, with adjusted 
 
 - Supports all SCS trucks and Coaches equipped with a factory GPS.
 - Sets the dashboard GPS 3D pitch to 40°.
-  - **The HUD minimap's 3D pitch also changes from 40° to 61.54° as a side effect.**
-- Moves the vehicle marker about 30% below the center of the dashboard map in both 2D and 3D.
+- Moves the vehicle marker about 30% below the center of the dashboard gps.
+
+> ***Side effects***
+>
+> - *The **HUD minimap's 3D pitch** changes from 40° to 61.54° as a side effect.*
+> - *The vehicle marker in the **dashboard GPS's 3D view** moves about 30% below the center.*
 
 ## Compatibility
 
