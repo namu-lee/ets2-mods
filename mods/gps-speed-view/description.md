@@ -14,7 +14,7 @@ Adds a speed limit and current speed indicators to dashboard GPS, with adjusted 
 - Sets the dashboard GPS 3D pitch to 40°.
 - Moves the vehicle marker about 30% below the center of the dashboard gps.
 
-> ***Side effects***
+> ***Known Limitations***
 > - *The **HUD minimap's 3D pitch** changes from 40° to 61.54° as a side effect.*
 > - *The vehicle marker in the **dashboard GPS's 3D view** moves about 30% below the center.*
 
