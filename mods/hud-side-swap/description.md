@@ -2,6 +2,9 @@
 
 [Source code](https://github.com/namu-lee/ets2-mods)
 
+> ***Note:** This mod and the mod below replace the same HUD layout. Enable only one at a time.*
+> - *[Driver-Side HUD](https://steamcommunity.com/sharedfiles/filedetails/?id=3845665802)*
+
 ## Description
 
 Swaps the left and right groups of HUD widgets on the driving screen.
@@ -9,7 +12,7 @@ Swaps the left and right groups of HUD widgets on the driving screen.
 ## Compatibility
 
 - Compatible with ETS2 1.62 and later.
-- Fully compatible with [No minimap](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514) mod.
+- Fully compatible with [No Minimap](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514) mod.
 - May conflict with mods that change the HUD widget layout. If two mods conflict, the higher-priority mod takes precedence.
 - VR is unsupported.
 
