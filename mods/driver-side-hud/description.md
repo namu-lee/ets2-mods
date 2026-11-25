@@ -1,4 +1,4 @@
-# Driver-Sided HUD
+# Driver-Side HUD
 
 [Source code](https://github.com/namu-lee/ets2-mods)
 

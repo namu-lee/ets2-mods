@@ -2,8 +2,8 @@ SiiNunit
 {
 mod_package : .drvsidehud
 {
-    display_name: "Driver-Sided HUD"
-    package_version: "1.0.0"
+    display_name: "Driver-Side HUD"
+    package_version: "1.0.1"
     category[]: "ui"
     description_file: "mod_description.txt"
 }

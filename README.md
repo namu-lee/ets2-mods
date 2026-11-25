@@ -8,7 +8,7 @@ Original contributions are licensed under the GPLv3. See [LICENSE](LICENSE).
 | --- | --- |
 | [Dashboard GPS Speed](mods/gps-speed/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3841119859) |
 | [Dashboard GPS Speed: Enhanced View](mods/gps-speed-view/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3842901227) |
-| [Driver-Sided HUD](mods/driver-sided-hud/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3845665802) |
+| [Driver-Side HUD](mods/driver-side-hud/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3845665802) |
 | [HUD Side Swap](mods/hud-side-swap/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300) |
 | [No Minimap](mods/no-minimap/) | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3841426514) |
 
