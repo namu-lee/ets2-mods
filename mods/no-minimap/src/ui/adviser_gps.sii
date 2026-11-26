@@ -2189,11 +2189,11 @@ ui::group : _nameless.3d7.2c48 {
  my_children[0]: _nameless.430.cfa8
  my_children[1]: _nameless.430.e818
  coords_l: 1373
- coords_r: 1400
+ coords_r: 1406
  coords_t: 59
  coords_b: 55
  area_l: 1373
- area_r: 1400
+ area_r: 1406
  area_t: 59
  area_b: 55
  id: 0
@@ -2206,7 +2206,7 @@ ui::group : _nameless.3d7.2c48 {
 ui::text : _nameless.430.cfa8 {
  text: "<color value=@@clr_white@@><img src=/material/ui/white.mat xscale=stretch yscale=stretch>"
  coords_l: 1373
- coords_r: 1385
+ coords_r: 1388
  coords_t: 59
  coords_b: 55
  area_l: 1
@@ -2223,7 +2223,7 @@ ui::text : _nameless.430.cfa8 {
 ui::text : _nameless.430.e818 {
  text: "<color value=@@clr_inputline_border_d@@><img src=/material/ui/white.mat xscale=stretch yscale=stretch>"
  coords_l: 1373
- coords_r: 1400
+ coords_r: 1406
  coords_t: 59
  coords_b: 55
  area_l: 1
