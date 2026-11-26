@@ -9,7 +9,7 @@ Hides the HUD minimap. Keep the Navigation widget enabled to see the clock, rest
 ## Compatibility
 
 - Compatible with ETS2 1.62 and later.
-- Fully compatible with [HUD Side Swap](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300) mod.
+- Fully compatible with [Driver-Side HUD](https://steamcommunity.com/sharedfiles/filedetails/?id=3845665802) and [HUD Side Swap](https://steamcommunity.com/sharedfiles/filedetails/?id=3841187300) mods.
 - May conflict with mods that modify the route advisor. If two mods conflict, the higher-priority mod takes precedence.
 
 ## Bug reports and feature requests
